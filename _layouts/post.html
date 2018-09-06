@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<noscript>
+	<style>
+
+		article .footnotes {
+			display: block;
+		}
+
+	</style>
+</noscript>
+
+<article>
+
+	<div class="center">
+		<h1>{{ page.title }}</h1>
+		<time>{{ page.date | date: '%B %-d, %Y' }}</time><br>
+	</div>
+
+	<div class="divider"></div>
+
+	<ul id="category" style="line-height: 0.8;"></ul>
+
+	{{ content }}
+	<div class="divider"></div>
+
+	标签:
+	{% for tag in page.tags %}
+		<a href="/tag#{{ tag }}">&nbsp;{{ tag }}</a>
+	{% endfor %}
+
+</article>
+
+<div style="color: #666;text-align: center;">
+    <br>
+    &copy;2012-2018 殷东亮
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h2,h3,h4,h5,h6").each(function(i,item){
+		var tag = $(item).get(0).localName;
+		$(item).attr("id","title"+i);
+		$("#category").append('<li class="new'+tag+'"><a href="#title'+i+'">'+$(this).text()+'</a></li></br>');
+		$(".newh2").css("margin-left",0);
+		$(".newh3").css("margin-left",20);
+		$(".newh4").css("margin-left",40);
+		$(".newh5").css("margin-left",60);
+		$(".newh6").css("margin-left",80);
+		});
+	});
+</script>

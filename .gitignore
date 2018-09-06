@@ -1,0 +1,16 @@
+Thumbs.db
+.DS_Store
+
+!.gitkeep
+
+.rbenv-version
+.rvmrc
+
+doc/build/*
+.sass-cache/*
+.tags
+_site/
+.idea/
+Gemfile.lock
+node_modules/
+package-lock.json
