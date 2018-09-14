@@ -1,7 +1,7 @@
 ---
 title: Vagrant虚拟机Ubuntu16.04安装MariaDB
 layout: post
-category: Dev
+category: Linux
 tag: [Vagrant, Ubuntu, MariaDB]
 ---
 

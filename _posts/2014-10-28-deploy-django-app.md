@@ -2,7 +2,7 @@
 layout: post
 title: Ubuntu下部署Django应用
 published: true
-category: Dev
+category: Linux
 tag: [Python, Django]
 ---
 

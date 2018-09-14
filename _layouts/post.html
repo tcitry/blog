@@ -30,6 +30,8 @@ layout: default
 	{% for tag in page.tags %}
 		<a href="/tag#{{ tag }}">&nbsp;{{ tag }}</a>
 	{% endfor %}
+	<br>
+	{% include disqus.html %}
 
 </article>
 
