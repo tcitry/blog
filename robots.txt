@@ -1,4 +1,2 @@
-# robots.txt
 User-agent: *
-Disallow: 
-Sitemap: http://yindongliang.com/sitemap.xml
+Sitemap: https://yindongliang.com/sitemap.xml
