@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2017-04-10T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-04-10T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="348">
+<meta itemprop="wordCount" content="352">
 
 
 
@@ -131,7 +131,7 @@
         <div class="post-category">
             <a href="/categories/vagrant/"> Vagrant </a>
             </div>
-          <span class="more-meta"> 约 348 字 </span>
+          <span class="more-meta"> 约 352 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -164,25 +164,38 @@
 <p>服务器开始远程登陆：my.cnf中<code>bind_address</code>改为0.0.0.0</p>
 
 <p>为登陆用户开启远程登陆权限：</p>
-
-<pre><code class="language-sql">&gt;&gt;GRANT ALL PRIVILEGES ON *.* TO myuser@'%' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
-&gt;&gt;FLUSH PRIVILEGES;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">&gt;&gt;</span><span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="n">myuser</span><span class="o">@</span><span class="s1">&#39;%&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;mypassword&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span> <span class="k">OPTION</span><span class="p">;</span>
+<span class="o">&gt;&gt;</span><span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>重启MariaDB <code>service mysql restart</code></p>
 
 <p>Vagrantfile中config.vm.network</p>
-
-<pre><code>config.vm.network &quot;forwarded_port&quot;, guest: 3306, host: 8306
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">config.vm.network &#34;forwarded_port&#34;, guest: 3306, host: 8306</pre></td></tr></table>
+</div>
+</div>
 <p>重启Vagrant虚拟机 <code>vagrant reload</code></p>
 
 <p>最后在宿主机连接MariaDB的命令：</p>
-
-<pre><code>mysql -u root -h 127.0.0.1 -P 8306 -p
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">mysql -u root -h 127.0.0.1 -P 8306 -p</pre></td></tr></table>
+</div>
+</div>
 <p>期间遇到无法reset MariaDB的root用户的密码，通过<a href="https://superuser.com/questions/949496/cant-reset-mysql-mariadb-root-password">这里</a>解决了，大致就是在安全模式下登陆，清空root的plugin，然后将密码写入表中。</p>
 
     </div>

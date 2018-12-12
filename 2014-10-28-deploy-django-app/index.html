@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2014-10-28T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2014-10-28T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1985">
+<meta itemprop="wordCount" content="2030">
 
 
 
@@ -131,8 +131,8 @@
         <div class="post-category">
             <a href="/categories/python/"> Python </a>
             </div>
-          <span class="more-meta"> 约 1985 字 </span>
-          <span class="more-meta"> 预计阅读 4 分钟 </span>
+          <span class="more-meta"> 约 2030 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -173,11 +173,16 @@
 <p>做了一个Django小应用，主要内容是一个论坛，经过好几天的研究，也可以在服务器端运行了，以下所有代码中的操作都需要在命令行运行。</p>
 
 <h2 id="安装mysql">安装MySQL</h2>
-
-<pre><code class="language-bash">apt-get update
-apt-get install mysql-server mysql-client
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">apt-get update
+apt-get install mysql-server mysql-client</code></pre></td></tr></table>
+</div>
+</div>
 <p>根据提示设置MySQL root用户密码</p>
 
 <h2 id="mysql设置中文utf8格式">MySQL设置中文utf8格式</h2>
@@ -191,98 +196,162 @@ apt-get install mysql-server mysql-client
 <p>[mysql]下添加<code>default-character-set=utf8</code></p>
 
 <p>重启MySQL</p>
-
-<pre><code class="language-bash">service mysql restart
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">service mysql restart</code></pre></td></tr></table>
+</div>
+</div>
 <p>进入MySQL查看编码</p>
-
-<pre><code class="language-bash">show variables like 'char%';
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">show variables like <span class="s1">&#39;char%&#39;</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p><img src="/img/2014-10-28-djangoapp.png" alt="" /></p>
 
 <h2 id="为mysql建立远程连接">为MySQL建立远程连接</h2>
 
 <p>由于修改数据库时不可能频繁的登服务器在命令行下修改，远程用workbench连接MySQL服务器是更方便的选择，先登入MySQL，授权一个可以远程连接这个数据库的用户名和密码</p>
-
-<pre><code class="language-mysql">&gt;&gt;GRANT ALL PRIVILEGES ON *.* TO myuser@'%' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
-&gt;&gt;FLUSH PRIVILEGES;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="o">&gt;&gt;</span><span class="k">GRANT</span> <span class="k">ALL</span> <span class="n">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="n">myuser</span><span class="o">@</span><span class="s1">&#39;%&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;mypassword&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span> <span class="k">OPTION</span><span class="p">;</span>
+<span class="o">&gt;&gt;</span><span class="k">FLUSH</span> <span class="n">PRIVILEGES</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>有的MySQL没有开放远程连接的端口，只允许本地连接，你需要查看my.conf之类的文件，我的在<code>/etc/mysql/my.conf</code>把</p>
-
-<pre><code class="language-bash">bind-address:127.0.0.1
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">bind-address:127.0.0.1</code></pre></td></tr></table>
+</div>
+</div>
 <p>那行注释掉即可</p>
 
 <h2 id="安装pip">安装pip</h2>
 
 <p><a href="https://pypi.python.org/pypi/pip#downloads">下载地址</a></p>
-
-<pre><code class="language-bash">apt-get install python-pip
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">apt-get install python-pip</code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="安装django1-7">安装django1.7</h2>
 
 <p><a href="https://www.djangoproject.com/">django官网</a></p>
-
-<pre><code class="language-bash">pip install Django==1.7
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">pip install <span class="nv">Django</span><span class="o">==</span><span class="m">1</span>.7</code></pre></td></tr></table>
+</div>
+</div>
 <p>python进入python2.7解释器</p>
-
-<pre><code class="language-bash">&gt;&gt;import django
-&gt;&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt;&gt;import django
+&gt;&gt;</code></pre></td></tr></table>
+</div>
+</div>
 <p>不出错说明安装成功</p>
 
 <h2 id="安装mysql-python">安装mysql-python</h2>
 
 <p>安装mysql-python注意需要配置<code>mysql_config</code>我的在(/usr/bin目录下，其他的类似也在bin目录下，视不同系统不同版本而定)如果 <code>/usr/bin</code>目录下没有<code>mysql_config</code>，需要安装mysql开发包</p>
-
-<pre><code class="language-bash">apt-get install python-setuptools
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">apt-get install python-setuptools
 apt-get install libmysqld-dev
 apt-get install libmysqlclient-dev
-apt-get install python-dev
-</code></pre>
-
+apt-get install python-dev</code></pre></td></tr></table>
+</div>
+</div>
 <p><a href="https://pypi.python.org/pypi/MySQL-python/">下载链接</a></p>
-
-<pre><code class="language-bash">wget 'url'
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget <span class="s1">&#39;url&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>解压zip文件，首先安装unzip</p>
-
-<pre><code class="language-bash">apt-get install unzip
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">apt-get install unzip
 unzip mysql-python.zip
-cd mysql-python
-vi site.cfg
-</code></pre>
-
+<span class="nb">cd</span> mysql-python
+vi site.cfg</code></pre></td></tr></table>
+</div>
+</div>
 <p>把<code>mysql_config</code>路径那行取消注释，路径为<code>/usr/bin/mysql_config</code></p>
-
-<pre><code class="language-bash">cd ..
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ..
 python setup.py build
-python setup.py install
-</code></pre>
-
+python setup.py install</code></pre></td></tr></table>
+</div>
+</div>
 <p>进去python解释器</p>
-
-<pre><code class="language-bash">&gt;&gt;import MySQLdb
-&gt;&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt;&gt;import MySQLdb
+&gt;&gt;</code></pre></td></tr></table>
+</div>
+</div>
 <p>不报错说明安装成功</p>
 
 <p>MySQLdb不支持python3，可以试试pymysql，同时在Python3的项目中，需要在<code>__init__.py</code>中添加</p>
-
-<pre><code class="language-bash">import pymysql
-pymysql.install_as_MySQLdb()
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">import pymysql
+pymysql.install_as_MySQLdb<span class="o">()</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>这是由于Django调用MySQL的接口问题，在setting.py文件中具体为<code>'ENGINE': 'django.db.backends.mysql',</code>，仔细查看这句代码就会发现Django默认调用的是MySQLdb，虽然它只支持Python2.0。</p>
 
 <h2 id="配置nginx">配置nginx</h2>
@@ -300,75 +369,123 @@ pymysql.install_as_MySQLdb()
 <h2 id="部署代码">部署代码</h2>
 
 <p>因为我的代码在github，先安装git</p>
-
-<pre><code class="language-bash">apt-get install git
-git clone https://github.com/tcitry/dlpucsdn.git
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">apt-get install git
+git clone https://github.com/tcitry/dlpucsdn.git</code></pre></td></tr></table>
+</div>
+</div>
 <p>部署以后注意修改数据库密码，邮件服务器密码，debug模式False，template_debug模式为False。</p>
 
 <h2 id="virtualenv">virtualenv</h2>
-
-<pre><code class="language-bash">pip install virtualenv
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">pip install virtualenv</code></pre></td></tr></table>
+</div>
+</div>
 <p>根据网上现有的教程简单看看virtualenv的使用很容易理解，在项目依赖的相关程序配置过程中需要始终开着virtualenv。</p>
 
 <h2 id="配置gunicorn">配置Gunicorn</h2>
 
 <p>查看这个<a href="https://www.digitalocean.com/community/tutorials/how-to-use-the-django-one-click-install-image">教程</a>修改为自己的应用参数</p>
-
-<pre><code class="language-bash">service gunicorn restart
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">service gunicorn restart</code></pre></td></tr></table>
+</div>
+</div>
 <p>当部署一个应用时可以将配置文件放在<code>/etc/init.d/gunicorn.conf</code>文件里面。但同时部署多个文件的时候，可以使用supervisor+gunicorn+virtualenv的部署方式，这样可以在每个不同的项目目录利用virtualenv为每个应用配置不同的环境，同时可以使服务器的环境更加易于管理。</p>
 
 <p>先在项目的根目录测试一下，确保gunicorn安装正确，</p>
-
-<pre><code class="language-bash">../bin/gunicorn myapp.wsgi:application
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">../bin/gunicorn myapp.wsgi:application</code></pre></td></tr></table>
+</div>
+</div>
 <p>不出错就说明正确了，出错一般是提示没有那个module名，检查一下django是否安装，执行命令的文件目录是否正确。</p>
 
 <h2 id="supervisor的使用">supervisor的使用</h2>
-
-<pre><code class="language-bash">apt-get install supervisor
-sudo vim /etc/supervisord.conf
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">apt-get install supervisor
+sudo vim /etc/supervisord.conf</code></pre></td></tr></table>
+</div>
+</div>
 <p>编辑的内容如下，请自行修改项目和目录名。</p>
-
-<pre><code class="language-bash">[program:classroom]
-command = sh /home/projects/classroom/classroom/gunicorn_start
-user = root
-redirect_stderr = true
-autorestart = true
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>program:classroom<span class="o">]</span>
+<span class="nb">command</span> <span class="o">=</span> sh /home/projects/classroom/classroom/gunicorn_start
+<span class="nv">user</span> <span class="o">=</span> root
+<span class="nv">redirect_stderr</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">autorestart</span> <span class="o">=</span> true</code></pre></td></tr></table>
+</div>
+</div>
 <p>配置这个gunicorn_start.sh</p>
-
-<pre><code class="language-bash">cd /home/projects/classroom/classroom
-../bin/gunicorn classroom.wsgi:application -w 4 -b :8000
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /home/projects/classroom/classroom
+../bin/gunicorn classroom.wsgi:application -w <span class="m">4</span> -b :8000</code></pre></td></tr></table>
+</div>
+</div>
 <p>启动supervisor</p>
-
-<pre><code class="language-bash">/etc/init.d/supervisord start
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">/etc/init.d/supervisord start</code></pre></td></tr></table>
+</div>
+</div>
 <p>其他方式</p>
-
-<pre><code class="language-bash">supervisorctl start &lt;name&gt;
-supervisorctl stop &lt;name&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">supervisorctl start &lt;name&gt;
+supervisorctl stop &lt;name&gt;</code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="安装七牛云sdk">安装七牛云SDK</h2>
 
 <p>由于网站的静态存储要用七牛云，在运行程序前要安装否则报错没有qiniu SDK的方法。</p>
-
-<pre><code class="language-bash">pip install qiniu
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">pip install qiniu</code></pre></td></tr></table>
+</div>
+</div>
 <p>七牛云安装前注意安装的版本，我被坑过一次，写程序时是6.0版本，部署时都7.0了，接口全都不一样。</p>
 
 <h2 id="还有">还有</h2>
