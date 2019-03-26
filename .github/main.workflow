@@ -5,7 +5,7 @@ workflow "Push to page" {
   ]
 }
 
-action "hugo" {
+action "master" {
   uses = "actions/bin/filter@master"
   args = "branch hugo"
 }
