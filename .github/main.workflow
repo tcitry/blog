@@ -7,7 +7,7 @@ workflow "Push to page" {
 
 action "hugo" {
   uses = "actions/bin/filter@master"
-  args = "branch master"
+  args = "branch hugo"
 }
 
 action "benmatselby/hugo-deploy-gh-pages@master" {
