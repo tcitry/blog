@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  jekyll_blog:
+    image: daocloud.io/tcitry/blog:latest
+    ports:
+      - '4000:4000'
