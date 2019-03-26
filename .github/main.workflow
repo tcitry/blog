@@ -1,17 +1,17 @@
-workflow "Push to page" {
+workflow "Push to master" {
   on = "push"
   resolves = [
     "benmatselby/hugo-deploy-gh-pages@master",
   ]
 }
 
-action "master" {
+action "hugo" {
   uses = "actions/bin/filter@master"
   args = "branch hugo"
 }
 
 action "benmatselby/hugo-deploy-gh-pages@master" {
-  needs = "master"
+  needs = "hugo"
   uses = "benmatselby/hugo-deploy-gh-pages@master"
   env = {
     TARGET_REPO = "tcitry/tcitry.github.io"
