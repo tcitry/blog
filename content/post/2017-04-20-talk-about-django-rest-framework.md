@@ -61,7 +61,7 @@ class ViewSet(ViewSetMixin, views.APIView):
     pass
 ```
 
-viewsets和APIView不一样的地方在于，它要表达的更多的是一个方法视图的集合，他的内部是已经实现了的`list()`，`retrieve()`，`delete()`，`update()`的实现，如果实现用drf的DefaultRouter。router和as_view都可以实现GET请求-->list()的转发，值得一提的还有`detail_route`和`list_route`，他们需要在urls中配置router的前提下使用，在Router类的`get_url`里面的`get_routers`执行，然后获得所有的路由列表，再进行action转发。
+viewsets和APIView不一样的地方在于，它要表达的更多的是一个方法视图的集合，他的内部是已经实现了的`list()`，`retrieve()`，`delete()`，`update()`的实现，如果实现用drf的DefaultRouter。router和as_view都可以实现GET请求-->list()的转发，值得一提的还有`detail_route`和`list_route`(最新版本推荐使用`action`)，他们需要在urls中配置router的前提下使用，在Router类的`get_url`里面的`get_routers`执行，然后获得所有的路由列表，再进行action转发。
 
 ```python
 # account/views.py
