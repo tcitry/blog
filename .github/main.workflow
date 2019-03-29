@@ -15,6 +15,7 @@ action "publish-hugo-site" {
   uses = "tcitry/publish-hugo-site@master"
   env = {
     TARGET_REPO = "tcitry/tcitry.github.io"
+    CNAME = "yindongliang.com"
   }
   secrets = ["TOKEN"]
 }
