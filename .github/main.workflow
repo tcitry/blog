@@ -1,21 +1,21 @@
 workflow "Push to master" {
   on = "push"
   resolves = [
-    "benmatselby/hugo-deploy-gh-pages@master",
+    "publish-hugo-site",
   ]
 }
 
-action "hugo" {
+action "hugo branch" {
   uses = "actions/bin/filter@master"
   args = "branch hugo"
 }
 
-action "benmatselby/hugo-deploy-gh-pages@master" {
-  needs = "hugo"
-  uses = "benmatselby/hugo-deploy-gh-pages@master"
+action "publish-hugo-site" {
+  needs = "hugo branch"
+  uses = "tcitry/publish-hugo-site@master"
   env = {
     TARGET_REPO = "tcitry/tcitry.github.io"
-    HUGO_VERSION = "0.54.0"
   }
   secrets = ["TOKEN"]
+  args = 'master'
 }
