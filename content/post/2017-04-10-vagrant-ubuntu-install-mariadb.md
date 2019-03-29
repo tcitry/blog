@@ -36,7 +36,8 @@ config.vm.network "forwarded_port", guest: 3306, host: 8306
 重启Vagrant虚拟机 `vagrant reload`
 
 最后在宿主机连接MariaDB的命令：
-```
+
+```bash
 mysql -u root -h 127.0.0.1 -P 8306 -p
 ```
 
