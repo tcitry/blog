@@ -1,20 +1,16 @@
-workflow "Jekyll build now" {
-  resolves = [
-    "Jekyll Action",
-  ]
+workflow "push to master" {
   on = "push"
+  resolves = ["push action"]
 }
 
 action "Filters for GitHub Actions" {
   uses = "actions/bin/filter@b2bea0749eed6beb495a8fa194c071847af60ea1"
-  args = "branch jekyll"
+  args = "branch hugo"
 }
 
-action "Jekyll Action" {
-  uses = "helaili/jekyll-action@master"
+action "push action" {
+  uses = "tcitry/push-to-master/@v1.0"
   needs = "Filters for GitHub Actions"
-  secrets = ["JEKYLL_PAT"]
-  env = {
-    SRC = ""
-  }
+  secrets = ["GITHUB_TOKEN"]
+  args = "gh-pages"
 }
