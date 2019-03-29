@@ -18,4 +18,5 @@ action "publish-hugo-site" {
     CNAME = "yindongliang.com"
   }
   secrets = ["TOKEN"]
+  args = "master"
 }
