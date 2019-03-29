@@ -17,5 +17,4 @@ action "publish-hugo-site" {
     TARGET_REPO = "tcitry/tcitry.github.io"
   }
   secrets = ["TOKEN"]
-  args = 'master'
 }
