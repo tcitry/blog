@@ -4,6 +4,7 @@ layout: post
 tags: [Vagrant, Ubuntu, MariaDB]
 categories: [Vagrant]
 date: 2017-04-10T00:00:00+08:00
+slug: vagrant-ubuntu-install-mariadb
 ---
 
 由于宿主机安装了MySQL，为了避免安装MariaDB造成MySQL无法使用，所以在Vagrant中安装Mariadb

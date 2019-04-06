@@ -4,6 +4,7 @@ title: 在公司实习一个月来的感悟
 tags: [生活]
 categories: [生活]
 date: 2015-11-24T00:00:00+08:00
+slug: one-month-intern
 ---
 
 从上个月开始在[大连云匠](http://cloudist.cc)实习，在公司做python后端，一个月来收获了很多。

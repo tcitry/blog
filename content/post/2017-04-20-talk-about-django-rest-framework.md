@@ -4,6 +4,7 @@ layout: post
 tags: [Django, Web]
 categories: [Django]
 date: 2017-04-20T00:00:00+08:00
+slug: talk-about-django-rest-framework
 ---
 
 从一年半之前接触Django，一年前接触Django-REST-framework（后称drf），再后来中间有个空挡，一直没有真正用到drf。由于当时各方面的素质比较差，理解restful和drf的设计很吃力，记得很清楚，还是在实习的时候，看个drf的英文文档要看好几遍，结果还是有很多概念看不明白，最后还是硬着头皮死记硬背地使用。最近又重新接触到，翻看文档发现，当时很难理解的东西，如今看一遍就懂了，顺带看了源码，也比较容易理解，至少比Django的源码简单不少。

@@ -4,6 +4,7 @@ title: Ubuntu下部署Django应用
 tags: [Python, Django]
 categories: [Python]
 date: 2014-10-28T00:00:00+08:00
+slug: deploy-django-app
 ---
 
 

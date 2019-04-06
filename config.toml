@@ -19,7 +19,8 @@ googleAnalytics = "UA-50554094-4"      # UA-XXXXXXXX-X
 copyright = "tcitry"            # default: author.name ↓        # 默认为下面配置的author.name ↓
 
 [permalinks]
-  post = "/:filename/"
+  # post = "/:filename/"
+  post = "/:year/:month/:day/:slug/"
 
 [author]                  # essential                     # 必需
   name = "tcitry"
