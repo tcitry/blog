@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: 在公司实习一个月来的感悟
 tags: [生活]
 categories: [生活]
