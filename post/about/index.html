@@ -3,10 +3,10 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | Gridea</title>
-<link rel="shortcut icon" href="http://localhost:4000/favicon.ico?v=1571984123531">
+<title>关于 | yindongliang</title>
+<link rel="shortcut icon" href="http://yindongliang.com/favicon.ico?v=1571986444306">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="http://localhost:4000/styles/main.css">
+<link rel="stylesheet" href="http://yindongliang.com/styles/main.css">
 
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
@@ -17,11 +17,11 @@
     <div class="main">
       <div class="main-content">
         <div class="site-header">
-  <a href="http://localhost:4000">
-  <img class="avatar" src="http://localhost:4000/images/avatar.png?v=1571984123531" alt="">
+  <a href="http://yindongliang.com">
+  <img class="avatar" src="http://yindongliang.com/images/avatar.png?v=1571986444306" alt="">
   </a>
   <h1 class="site-title">
-    Gridea
+    yindongliang
   </h1>
   <p class="site-description">
     温故而知新
@@ -29,25 +29,25 @@
   <div class="menu-container">
     
       
-        <a href="http://localhost:4000/" class="menu">
+        <a href="/" class="menu">
           首页
         </a>
       
     
       
-        <a href="http://localhost:4000/archives" class="menu">
+        <a href="/archives" class="menu">
           归档
         </a>
       
     
       
-        <a href="http://localhost:4000/tags" class="menu">
+        <a href="/tags" class="menu">
           标签
         </a>
       
     
       
-        <a href="http://localhost:4000/post/about" class="menu">
+        <a href="/post/about" class="menu">
           关于
         </a>
       
@@ -82,148 +82,7 @@
             </div>
             
             <div class="post-content">
-              <p>这是关于的页面，可以在这里向世界介绍你！</p>
-<h1 id="aes加密算法">AES加密算法</h1>
-<h2 id="异或概念">异或概念</h2>
-<p>表示法⊕ XOR<br>
-含义：相同为0，不同为1<br>
-练习：<br>
-0 XOR 0 = 1<br>
-0 XOR 1 = 1<br>
-1 XOR 0 = 1<br>
-1 XOR 1 = 1</p>
-<h2 id="加密解密最最基本原理">加密解密最最基本原理</h2>
-<p>举例：<br>
-明文：0101 密钥 1100</p>
-<p>加密：<br>
-0101<br>
-1100<br>
-—<br>
-1001</p>
-<p>解密：<br>
-1001<br>
-1100<br>
-—<br>
-0101</p>
-<h2 id="一次性密码">一次性密码</h2>
-<p>即便暴力破解，一次性密码本也无法被破译，即使解密也无法确定解密的是否为原文。</p>
-<p>优点</p>
-<ul>
-<li>数学上是”无条件完全安全的”</li>
-</ul>
-<p>缺点</p>
-<ul>
-<li>传输</li>
-<li>不能重用</li>
-<li>长短问题</li>
-<li>保存</li>
-<li>不能压缩</li>
-<li>每次都要生成密钥</li>
-</ul>
-<p>应用：国家间专线</p>
-<h2 id="des-数据加密标准">DES 数据加密标准</h2>
-<p>(Data encryption standard, 1977)，将64比特的明文加密成64比特的密文，密钥长度64</p>
-<h3 id="算法">算法</h3>
-<p>轮函数是加密系统的核心</p>
-<p>[image:86E323F5-5005-4B9F-AF88-F877BF97165B-714-0001E83AF23E4B5C/56789A33-252D-4B53-9C33-CA3F413A5C85.png]</p>
-<ul>
-<li>
-<p>16轮，费斯妥函数</p>
-</li>
-<li>
-<p>密钥长度64位，实质是56位</p>
-</li>
-</ul>
-<p>[image:657488BC-B28F-47BC-98F2-65DEDB6BEED4-714-0001E8E8582157D3/BA9E994A-EC14-4CDE-AF0D-A5044347A566.png]</p>
-<p>破解</p>
-<ul>
-<li>1997年96天</li>
-<li>1998年56个小时</li>
-<li>1999年22个小时</li>
-</ul>
-<p>只用于解密，不建议加密</p>
-<p>拓展3DES，密钥长度 x3</p>
-<p>[image:6B165E5B-D7A0-4205-A04C-380061535B19-714-0001E9110FF4F1AD/C7AA40E5-37CC-4233-BFEF-4E37C9972E9D.png]</p>
-<p>3DES解密</p>
-<p>[image:5C46F4FF-B869-46A7-BD95-C9F881C53766-714-0001E926D3C68F2D/CDBD7FF7-0EB9-4116-A348-2F39605A8235.png]</p>
-<p>Questions</p>
-<ol>
-<li>如何使3DES兼容DES算法？</li>
-</ol>
-<h2 id="aes">AES</h2>
-<p>(Advanced Encryption Standard, 2001)，Joan Daemen和Vincent Rijmen，将128比特的明文加密，密钥长度支持128、196、256</p>
-<p>[image:44E78181-33F1-4C65-A587-FA695ECC5C27-714-0001E95A4C76615A/687474703a2f2f626c6f672e64796e6f782e636e2f77702d636f6e74656e742f75706c6f6164732f323031372f30322f4145532d4a6f616e2d56696e63656e742e706e67.png]</p>
-<p>选拔条件：无条件供全世界免费使用，算法完全公开</p>
-<h3 id="轮函数">轮函数</h3>
-<ul>
-<li>SubBytes</li>
-<li>ShiftRow</li>
-<li>MixColumns</li>
-<li>AddRoundKey</li>
-</ul>
-<p>SubBytes 字节替换<br>
-[image:58A21CA1-15F6-4AA3-90E4-6FFC2013E4FC-714-0001E96E68D0FAF9/687474703a2f2f626c6f672e64796e6f782e636e2f77702d636f6e74656e742f75706c6f6164732f323031372f30322f4145532d53756242797465732e706e67.png]</p>
-<p>S-box<br>
-[image:8DD3D67C-BA69-4594-8A64-20D992409BFC-714-0001E978B2746E79/687474703a2f2f626c6f672e64796e6f782e636e2f77702d636f6e74656e742f75706c6f6164732f323031372f30322f4145532d73626f782e6a7067.jpg]</p>
-<p>ShiftRow行移位</p>
-<p>[image:30256920-0267-4E5F-8A23-D06B64C920C9-714-0001E998EFC6E4D9/687474703a2f2f626c6f672e64796e6f782e636e2f77702d636f6e74656e742f75706c6f6164732f323031372f30322f4145532d5368696674526f77732e706e67.png]<br>
-MixColumns<br>
-[image:B5927A52-1FF7-4CCF-B142-3D064A98BD23-714-0001E9889AF413B8/687474703a2f2f626c6f672e64796e6f782e636e2f77702d636f6e74656e742f75706c6f6164732f323031372f30322f4145532d4d6978436f6c756d6e732e706e67.png]</p>
-<p>AddRoundKey</p>
-<p>[image:14DE7195-D556-4EC7-8F45-3571B3F86DC7-714-0001E98D5F7069A7/687474703a2f2f626c6f672e64796e6f782e636e2f77702d636f6e74656e742f75706c6f6164732f323031372f30322f4145532d416464526f756e644b65792e706e67.png]</p>
-<h2 id="迭代模式">迭代模式</h2>
-<ul>
-<li>ECB</li>
-<li>CBC</li>
-<li>CFB</li>
-<li>OFB</li>
-<li>CTR</li>
-</ul>
-<p>初始化向量：一般要求是随机数</p>
-<p>ECB 电子密码本 Electronic codebook</p>
-<p>[image:BBCB81D7-85B4-48D9-A510-1CB2FB119FA5-714-0001EB977AC532AC/8B30D9F7-8485-4384-99FF-A6CE47214731.png]</p>
-<p>CBC 密码块链接 Cipher-block chaining</p>
-<p>[image:AB31354C-12F3-40CC-8E93-3883E5EA37D9-714-0001EB093FA04E45/7C5AA981-5446-4A22-A6F1-FC7AAD26DEDA.png]</p>
-<p>CFB 密码反馈 Cipher feedback</p>
-<p>[image:76AEE25F-D662-451F-8CE0-B1E9675320CB-714-0001EB10C59BD190/39A66347-0E2E-44D0-BF8A-AC073438F1DC.png]</p>
-<p>OFB 输出反馈模式 Output feedback</p>
-<p>[image:5F241608-627F-4915-B36D-ACAE33035455-714-0001EB3D4AACE519/6701F3C8-760D-45CB-B279-19F30FB148AE.png]</p>
-<p>CTR 计数器模式 Counter mode</p>
-<p>[image:BD6E9898-F143-4638-91D6-4BB97F907D82-714-0001EB278E770F4C/22831C1B-6157-4EB7-B5A0-34E92F05A8E6.png]</p>
-<p>填充</p>
-<ul>
-<li>PKCS5/PKCS7 字节填充</li>
-<li>ANSIX923 字节填充</li>
-<li>位填充</li>
-</ul>
-<h2 id="其他对称加密算法">其他对称加密算法</h2>
-<h3 id="camellia块加密日本">Camellia（块加密）日本</h3>
-<ul>
-<li>Firefox</li>
-<li>FreeBSD</li>
-<li>GnuPG</li>
-</ul>
-<h3 id="chacha20流加密">ChaCha20（流加密）</h3>
-<ul>
-<li>Chrome HTTPS</li>
-<li>openssh</li>
-<li>OpenBSD随机数生成器</li>
-</ul>
-<h2 id="questions">Questions</h2>
-<h2 id="推荐">推荐</h2>
-<p><a href="https://github.com/matt-wu/AES">GitHub - matt-wu/AES: Understanding AES &amp; Rijndael</a><br>
-<a href="https://en.wikipedia.org/wiki/Category:Cryptography">https://en.wikipedia.org/wiki/Category:Cryptography</a></p>
-<h2 id="磐石mirage">磐石mirage</h2>
-<p>Django model原理<br>
-重写处理方法<br>
-算法AES-256-ECB</p>
-<h2 id="下期预告">下期预告</h2>
-<ul>
-<li>非对称加密</li>
-<li>单向加密</li>
-<li>认证</li>
-<li>签名</li>
-</ul>
+              <p>hello</p>
 
             </div>
           </article>
@@ -234,7 +93,7 @@ MixColumns<br>
         
     
         <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  © 2012 - 2019 <a href="https://github.com/tcitry">tcitry</a>
 </div>
 
 <script>
