@@ -1,22 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://yindongliang.com</id>
-    <title>Yindongliang</title>
-    <updated>2019-11-17T12:26:17.192Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://yindongliang.com"/>
-    <link rel="self" href="https://yindongliang.com/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://yindongliang.com/images/avatar.png</logo>
-    <icon>https://yindongliang.com/favicon.ico</icon>
-    <rights>All rights reserved 2019, Yindongliang</rights>
-    <entry>
-        <title type="html"><![CDATA[浅谈Django-REST-framework的设计与源码]]></title>
-        <id>https://yindongliang.com/post/EEL1dou99</id>
-        <link href="https://yindongliang.com/post/EEL1dou99">
-        </link>
-        <updated>2019-11-12T06:44:17.000Z</updated>
-        <content type="html"><![CDATA[<p>从一年半之前接触Django，一年前接触Django-REST-framework（后称drf），再后来中间有个空挡，一直没有真正用到drf。由于当时各方面的素质比较差，理解restful和drf的设计很吃力，记得很清楚，还是在实习的时候，看个drf的英文文档要看好几遍，结果还是有很多概念看不明白，最后还是硬着头皮死记硬背地使用。最近又重新接触到，翻看文档发现，当时很难理解的东西，如今看一遍就懂了，顺带看了源码，也比较容易理解，至少比Django的源码简单不少。</p>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>浅谈Django-REST-framework的设计与源码 | Yindongliang</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://yindongliang.com/favicon.ico?v=1573993559922">
+<link rel="stylesheet" href="https://yindongliang.com/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-50554094-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-50554094-4');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://yindongliang.com">
+        <img class="avatar" src="https://yindongliang.com/images/avatar.png?v=1573993559922" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://yindongliang.com">
+        <h1 class="site-title">Yindongliang</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">浅谈Django-REST-framework的设计与源码</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-11-12</span>
+            
+          </div>
+          <div class="post-content">
+            <p>从一年半之前接触Django，一年前接触Django-REST-framework（后称drf），再后来中间有个空挡，一直没有真正用到drf。由于当时各方面的素质比较差，理解restful和drf的设计很吃力，记得很清楚，还是在实习的时候，看个drf的英文文档要看好几遍，结果还是有很多概念看不明白，最后还是硬着头皮死记硬背地使用。最近又重新接触到，翻看文档发现，当时很难理解的东西，如今看一遍就懂了，顺带看了源码，也比较容易理解，至少比Django的源码简单不少。</p>
 <p>下面开始从drf的设计和源码两个方面，结合自己的看法，谈谈drf。</p>
 <h2 id="apiview">APIView</h2>
 <p>APIView是drf概念体系中最基本类视图，它基于Django的View，同时又实现了一层对自己创造的概念的封装，比如<code>permission_classes</code>，<code>render_classes</code>，<code>authentication_classes</code>等，相当于请求过来后又进入一层，过滤（验证、初始化）完要走的这些classes，才能执行到我们自己实现的view。</p>
@@ -97,6 +181,95 @@ urlpatterns = router.urls
 <p>我的理解，drf是基于“Don't repeat yourself”原则，提出一个Web开发的规范，它代码里提供了规范的接口，和最基础的使用例子，而在实际的复杂逻辑开发中，需要的是对各种概念的“custome”定制，几乎文档每一页都提供了定制的介绍。实际的应用里面不会是简单的增删改查，而是需要走一定的逻辑处理后的增删改查，同时还有对基础操作频繁的复用。drf通过把web业务系统中会出现的每一步流程拆分，进行模块化，概念化，让开发者知道需要开发的业务属于哪一种概念，放到哪一个模块下面，从而在drf的大框架下特定的位置编写，这样减少了一份功能多份代码实现的麻烦，也因为规范化coding提高了开发者的效率。</p>
 <p>当然drf也有缺点，它对新手不够友好，一些封装太极致，以至于不容易明白程序的执行流程，比如我初次看<code>viewsets</code>、<code>GenericAPIView</code>的时候。</p>
 <p>最后我基于drf的文档，学习过程中写了一个论坛demo：<a href="https://github.com/tcitry/drforum">drforum</a>的论坛例子，可以直接runserver调试。通过<code>127.0.0.1:8000/docs</code>可以查看汇总的接口，这里使用了<a href="http://drfdocs.com/">DRF Docs</a>。</p>
-]]></content>
-    </entry>
-</feed>
+
+          </div>
+        </div>
+
+        
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/tcitry" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/tcitry" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+        <a href="https://weibo.com/tcitry" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://www.zhihu.com/people/tcitry" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  © 2012 - 2019 <a href="https://github.com/tcitry">tcitry</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '017177233492797f103e',
+        clientSecret: 'acc79514faf7b048243b9349916d04140bf335c3',
+        repo: 'blog',
+        owner: 'tcitry',
+        admin: ['tcitry'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
