@@ -1,0 +1,403 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>I&#39;m Yindongliang</title>
+<meta name="description" content="殷东亮的博客" />
+<link rel="shortcut icon" href="https://yindongliang.com/favicon.ico?v=1575124006904">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.remixicon.com/releases/v1.3.1/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://yindongliang.com/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="I&#39;m Yindongliang - Atom Feed" href="https://yindongliang.com/atom.xml">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-50554094-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-50554094-4');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="remixicon-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://yindongliang.com">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://yindongliang.com/images/avatar.png?v=1575124006904" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">I&#39;m Yindongliang</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85mysql">安装MySQL</a></li>
+<li><a href="#mysql%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87utf8%E6%A0%BC%E5%BC%8F">MySQL设置中文utf8格式</a></li>
+<li><a href="#%E4%B8%BAmysql%E5%BB%BA%E7%AB%8B%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5">为MySQL建立远程连接</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85pip">安装pip</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85django17">安装django1.7</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85mysql-python">安装mysql-python</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AEnginx">配置nginx</a></li>
+<li><a href="#%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81">部署代码</a></li>
+<li><a href="#virtualenv">virtualenv</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AEgunicorn">配置Gunicorn</a></li>
+<li><a href="#supervisor%E7%9A%84%E4%BD%BF%E7%94%A8">supervisor的使用</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E4%B8%83%E7%89%9B%E4%BA%91sdk">安装七牛云SDK</a></li>
+<li><a href="#%E8%BF%98%E6%9C%89">还有</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="remixicon-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700"><p>© 2012 - 2019 <a href="https://github.com/tcitry">tcitry</a></p></div>
+    <a class="rss" href="https://yindongliang.com/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">Ubuntu 下部署 Django 应用</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2014-10-28 / 6 min read
+        </div>
+        
+        <div class="post-content yue">
+          <p>做了一个Django小应用，主要内容是一个论坛，经过好几天的研究，也可以在服务器端运行了，以下所有代码中的操作都需要在命令行运行。</p>
+<!-- more -->
+<h2 id="安装mysql">安装MySQL</h2>
+<pre><code class="language-bash">apt-get update
+apt-get install mysql-server mysql-client
+</code></pre>
+<p>根据提示设置 MySQL root用户密码</p>
+<h2 id="mysql设置中文utf8格式">MySQL设置中文utf8格式</h2>
+<p>一般在<code>/etc/mysql</code>下</p>
+<p>[client]下添加<code>default-character-set=utf8</code></p>
+<p>[mysqld]下添加<code>character-set-server=utf8</code></p>
+<p>[mysql]下添加<code>default-character-set=utf8</code></p>
+<p>重启MySQL</p>
+<pre><code class="language-bash">service mysql restart
+</code></pre>
+<p>进入MySQL查看编码</p>
+<pre><code class="language-bash">show variables like 'char%';
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://yindongliang.com/post-images/1575122583496.png" alt=""></figure>
+<h2 id="为mysql建立远程连接">为MySQL建立远程连接</h2>
+<p>由于修改数据库时不可能频繁的登服务器在命令行下修改，远程用workbench连接MySQL服务器是更方便的选择，先登入MySQL，授权一个可以远程连接这个数据库的用户名和密码</p>
+<pre><code class="language-mysql">&gt;&gt;GRANT ALL PRIVILEGES ON *.* TO myuser@'%' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
+&gt;&gt;FLUSH PRIVILEGES;
+</code></pre>
+<p>有的MySQL没有开放远程连接的端口，只允许本地连接，你需要查看my.conf之类的文件，我的在<code>/etc/mysql/my.conf</code>把</p>
+<pre><code class="language-bash">bind-address:127.0.0.1
+</code></pre>
+<p>那行注释掉即可</p>
+<h2 id="安装pip">安装pip</h2>
+<p><a href="https://pypi.python.org/pypi/pip#downloads">下载地址</a></p>
+<pre><code class="language-bash">apt-get install python-pip
+</code></pre>
+<h2 id="安装django17">安装django1.7</h2>
+<p><a href="https://www.djangoproject.com/">django官网</a></p>
+<pre><code class="language-bash">pip install Django==1.7
+</code></pre>
+<p>python进入python2.7解释器</p>
+<pre><code class="language-bash">&gt;&gt;import django
+&gt;&gt;
+</code></pre>
+<p>不出错说明安装成功</p>
+<h2 id="安装mysql-python">安装mysql-python</h2>
+<p>安装mysql-python注意需要配置<code>mysql_config</code>我的在(/usr/bin目录下，其他的类似也在bin目录下，视不同系统不同版本而定)如果 <code>/usr/bin</code>目录下没有<code>mysql_config</code>，需要安装mysql开发包</p>
+<pre><code class="language-bash">apt-get install python-setuptools
+apt-get install libmysqld-dev
+apt-get install libmysqlclient-dev
+apt-get install python-dev
+</code></pre>
+<p><a href="https://pypi.python.org/pypi/MySQL-python/">下载链接</a></p>
+<pre><code class="language-bash">wget 'url'
+</code></pre>
+<p>解压zip文件，首先安装unzip</p>
+<pre><code class="language-bash">apt-get install unzip
+unzip mysql-python.zip
+cd mysql-python
+vi site.cfg
+</code></pre>
+<p>把<code>mysql_config</code>路径那行取消注释，路径为<code>/usr/bin/mysql_config</code></p>
+<pre><code class="language-bash">cd ..
+python setup.py build
+python setup.py install
+</code></pre>
+<p>进去python解释器</p>
+<pre><code class="language-bash">&gt;&gt;import MySQLdb
+&gt;&gt;
+</code></pre>
+<p>不报错说明安装成功</p>
+<p>MySQLdb不支持python3，可以试试pymysql，同时在Python3的项目中，需要在<code>__init__.py</code>中添加</p>
+<pre><code class="language-bash">import pymysql
+pymysql.install_as_MySQLdb()
+</code></pre>
+<p>这是由于Django调用MySQL的接口问题，在setting.py文件中具体为<code>'ENGINE': 'django.db.backends.mysql',</code>，仔细查看这句代码就会发现Django默认调用的是MySQLdb，虽然它只支持Python2.0。</p>
+<h2 id="配置nginx">配置nginx</h2>
+<p>最重要的就是nginx的配置</p>
+<p>我的配置目录在<code>/etc/nginx/nginx.conf</code>和<code>/etc/nginx/sites-enable/*</code>后者可以在前者文件中设置，先查看配置文件<code>/etc/nginx/sites-enable/django</code></p>
+<figure data-type="image" tabindex="2"><img src="https://yindongliang.com/post-images/1575122555550.png" alt=""></figure>
+<p>根据自己的应用修改配置文件中static路径，server_name，root等。修改完毕注意要<code>service nginx reload</code></p>
+<p>关于静态文件的地址配置还是需要多说一句，nginx中的<code>/static</code>目录对应的是<code>setting.py</code>文件中的<code>STATIC_ROOT</code>目录，两个写一样的，执行<code>python manage.py collectstatic</code>收集的文件是admin后台模块的静态样式文件，执行完后这些静态文件就被复制在你设置的<code>STATIC_ROOT</code>目录了。</p>
+<h2 id="部署代码">部署代码</h2>
+<p>因为我的代码在github，先安装git</p>
+<pre><code class="language-bash">apt-get install git
+git clone https://github.com/tcitry/dlpucsdn.git
+</code></pre>
+<p>部署以后注意修改数据库密码，邮件服务器密码，debug模式False，template_debug模式为False。</p>
+<h2 id="virtualenv">virtualenv</h2>
+<pre><code class="language-bash">pip install virtualenv
+</code></pre>
+<p>根据网上现有的教程简单看看virtualenv的使用很容易理解，在项目依赖的相关程序配置过程中需要始终开着virtualenv。</p>
+<h2 id="配置gunicorn">配置Gunicorn</h2>
+<p>查看这个<a href="https://www.digitalocean.com/community/tutorials/how-to-use-the-django-one-click-install-image">文档</a>修改为自己的应用参数</p>
+<pre><code class="language-bash">service gunicorn restart
+</code></pre>
+<p>当部署一个应用时可以将配置文件放在<code>/etc/init.d/gunicorn.conf</code>文件里面。但同时部署多个文件的时候，可以使用supervisor+gunicorn+virtualenv的部署方式，这样可以在每个不同的项目目录利用virtualenv为每个应用配置不同的环境，同时可以使服务器的环境更加易于管理。</p>
+<p>先在项目的根目录测试一下，确保gunicorn安装正确，</p>
+<pre><code class="language-bash">../bin/gunicorn myapp.wsgi:application
+</code></pre>
+<p>不出错就说明正确了，出错一般是提示没有那个module名，检查一下django是否安装，执行命令的文件目录是否正确。</p>
+<h2 id="supervisor的使用">supervisor的使用</h2>
+<pre><code class="language-bash">apt-get install supervisor
+sudo vim /etc/supervisord.conf
+</code></pre>
+<p>编辑的内容如下，请自行修改项目和目录名。</p>
+<pre><code class="language-bash">[program:classroom]
+command = sh /home/projects/classroom/classroom/gunicorn_start
+user = root
+redirect_stderr = true
+autorestart = true
+</code></pre>
+<p>配置这个gunicorn_start.sh</p>
+<pre><code class="language-bash">cd /home/projects/classroom/classroom
+../bin/gunicorn classroom.wsgi:application -w 4 -b :8000
+</code></pre>
+<p>启动supervisor</p>
+<pre><code class="language-bash">/etc/init.d/supervisord start
+</code></pre>
+<p>其他方式</p>
+<pre><code class="language-bash">supervisorctl start &lt;name&gt;
+supervisorctl stop &lt;name&gt;
+</code></pre>
+<h2 id="安装七牛云sdk">安装七牛云SDK</h2>
+<p>由于网站的静态存储要用七牛云，在运行程序前要安装否则报错没有qiniu SDK的方法。</p>
+<pre><code class="language-bash">pip install qiniu
+</code></pre>
+<p>七牛云安装前注意安装的版本，我被坑过一次，写程序时是6.0版本，部署时都7.0了，接口全都不一样。</p>
+<h2 id="还有">还有</h2>
+<p>还有不推荐cloudflare等国外CDN加速，亲身体验。</p>
+<p>还有推荐下这篇来自digitalocean的<a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-django-with-postgres-nginx-and-gunicorn">部署实例</a></p>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://yindongliang.com/tag/django">
+            <span class="flex-auto">Django</span>
+          </a>
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://yindongliang.com/tag/python">
+            <span class="flex-auto">Python</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+            <div class="prev-post">
+              <a href="https://yindongliang.com/post/EEL1dou99">
+                <h3 class="post-title">
+                  <i class="remixicon-arrow-left-line"></i>
+                  浅谈 Django-REST-framework 的设计与源码
+                </h3>
+              </a>
+            </div>
+          
+
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '017177233492797f103e',
+    clientSecret: 'acc79514faf7b048243b9349916d04140bf335c3',
+    repo: 'blog',
+    owner: 'tcitry',
+    admin: ['tcitry'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://yindongliang.com/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
