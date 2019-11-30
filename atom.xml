@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yindongliang.com</id>
     <title>I&apos;m Yindongliang</title>
-    <updated>2019-11-30T14:32:10.438Z</updated>
+    <updated>2019-11-30T14:36:42.066Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yindongliang.com"/>
     <link rel="self" href="https://yindongliang.com/atom.xml"/>
@@ -10,37 +10,6 @@
     <logo>https://yindongliang.com/images/avatar.png</logo>
     <icon>https://yindongliang.com/favicon.ico</icon>
     <rights>All rights reserved 2019, I&apos;m Yindongliang</rights>
-    <entry>
-        <title type="html"><![CDATA[Vagrant 虚拟机 Ubuntu16.04 安装 MariaDB]]></title>
-        <id>https://yindongliang.com/post/mS_M01Ju5</id>
-        <link href="https://yindongliang.com/post/mS_M01Ju5">
-        </link>
-        <updated>2019-11-30T14:00:08.000Z</updated>
-        <summary type="html"><![CDATA[<p>由于宿主机安装了MySQL，为了避免安装MariaDB造成MySQL无法使用，所以在Vagrant中安装Mariadb。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>由于宿主机安装了MySQL，为了避免安装MariaDB造成MySQL无法使用，所以在Vagrant中安装Mariadb。</p>
-<!-- more -->
-<p>更换<a href="http://mirrors.163.com/.help/ubuntu.html">网易apt-get源</a> <code>/etc/apt/sources.list</code></p>
-<p>读取源软件列表 <code>sudo apt update</code></p>
-<p>更新软件版本 <code>sudo apt upgrade</code></p>
-<p>安装MariaDB  <code>sudo apt install mariadb-server</code></p>
-<p>安全性设置更新root密码 <code>sudo mysql_secure_installation</code></p>
-<p>服务器开始远程登陆：my.cnf中<code>bind_address</code>改为0.0.0.0</p>
-<p>为登陆用户开启远程登陆权限：</p>
-<pre><code class="language-sql">&gt;&gt;GRANT ALL PRIVILEGES ON *.* TO myuser@'%' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
-&gt;&gt;FLUSH PRIVILEGES;
-</code></pre>
-<p>重启MariaDB <code>service mysql restart</code></p>
-<p>Vagrantfile中config.vm.network</p>
-<pre><code>config.vm.network &quot;forwarded_port&quot;, guest: 3306, host: 8306
-</code></pre>
-<p>重启Vagrant虚拟机 <code>vagrant reload</code></p>
-<p>最后在宿主机连接MariaDB的命令：</p>
-<pre><code class="language-bash">mysql -u root -h 127.0.0.1 -P 8306 -p
-</code></pre>
-<p>期间遇到无法reset MariaDB的root用户的密码，通过<a href="https://superuser.com/questions/949496/cant-reset-mysql-mariadb-root-password">这里</a>解决了，大致就是在安全模式下登陆，清空root的plugin，然后将密码写入表中。</p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[浅谈 Django-REST-framework 的设计与源码]]></title>
         <id>https://yindongliang.com/post/EEL1dou99</id>
@@ -130,6 +99,37 @@ urlpatterns = router.urls
 <p>我的理解，DRF是基于“Don't repeat yourself”原则，提出一个Web开发的规范，它代码里提供了规范的接口，和最基础的使用例子，而在实际的复杂逻辑开发中，需要的是对各种概念的“custome”定制，几乎文档每一页都提供了定制的介绍。实际的应用里面不会是简单的增删改查，而是需要走一定的逻辑处理后的增删改查，同时还有对基础操作频繁的复用。DRF通过把web业务系统中会出现的每一步流程拆分，进行模块化，概念化，让开发者知道需要开发的业务属于哪一种概念，放到哪一个模块下面，从而在DRF的大框架下特定的位置编写，这样减少了一份功能多份代码实现的麻烦，也因为规范化coding提高了开发者的效率。</p>
 <p>当然DRF也有缺点，它对新手不够友好，一些封装太极致，以至于不容易明白程序的执行流程，比如我初次看<code>viewsets</code>、<code>GenericAPIView</code>的时候。</p>
 <p>最后我基于DRF的文档，学习过程中写了一个论坛demo：<a href="https://github.com/tcitry/DRForum">DRForum</a>的论坛例子，可以直接runserver调试。通过<code>127.0.0.1:8000/docs</code>可以查看汇总的接口，这里使用了<a href="http://DRFdocs.com/">DRF Docs</a>。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Vagrant 虚拟机 Ubuntu16.04 安装 MariaDB]]></title>
+        <id>https://yindongliang.com/post/mS_M01Ju5</id>
+        <link href="https://yindongliang.com/post/mS_M01Ju5">
+        </link>
+        <updated>2017-04-10T14:00:08.000Z</updated>
+        <summary type="html"><![CDATA[<p>由于宿主机安装了MySQL，为了避免安装MariaDB造成MySQL无法使用，所以在Vagrant中安装Mariadb。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>由于宿主机安装了MySQL，为了避免安装MariaDB造成MySQL无法使用，所以在Vagrant中安装Mariadb。</p>
+<!-- more -->
+<p>更换<a href="http://mirrors.163.com/.help/ubuntu.html">网易apt-get源</a> <code>/etc/apt/sources.list</code></p>
+<p>读取源软件列表 <code>sudo apt update</code></p>
+<p>更新软件版本 <code>sudo apt upgrade</code></p>
+<p>安装MariaDB  <code>sudo apt install mariadb-server</code></p>
+<p>安全性设置更新root密码 <code>sudo mysql_secure_installation</code></p>
+<p>服务器开始远程登陆：my.cnf中<code>bind_address</code>改为0.0.0.0</p>
+<p>为登陆用户开启远程登陆权限：</p>
+<pre><code class="language-sql">&gt;&gt;GRANT ALL PRIVILEGES ON *.* TO myuser@'%' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
+&gt;&gt;FLUSH PRIVILEGES;
+</code></pre>
+<p>重启MariaDB <code>service mysql restart</code></p>
+<p>Vagrantfile中config.vm.network</p>
+<pre><code>config.vm.network &quot;forwarded_port&quot;, guest: 3306, host: 8306
+</code></pre>
+<p>重启Vagrant虚拟机 <code>vagrant reload</code></p>
+<p>最后在宿主机连接MariaDB的命令：</p>
+<pre><code class="language-bash">mysql -u root -h 127.0.0.1 -P 8306 -p
+</code></pre>
+<p>期间遇到无法reset MariaDB的root用户的密码，通过<a href="https://superuser.com/questions/949496/cant-reset-mysql-mariadb-root-password">这里</a>解决了，大致就是在安全模式下登陆，清空root的plugin，然后将密码写入表中。</p>
 ]]></content>
     </entry>
     <entry>
