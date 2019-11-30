@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>I&#39;m Yindongliang</title>
 <meta name="description" content="殷东亮的博客" />
-<link rel="shortcut icon" href="https://yindongliang.com/favicon.ico?v=1574954802432">
+<link rel="shortcut icon" href="https://yindongliang.com/favicon.ico?v=1575121188701">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.remixicon.com/releases/v1.3.1/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -33,7 +33,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="remixicon-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://yindongliang.com">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://yindongliang.com/images/avatar.png?v=1574954802432" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://yindongliang.com/images/avatar.png?v=1575121188701" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">I&#39;m Yindongliang</h1>
       </div>
@@ -103,14 +103,14 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16">浅谈Django-REST-framework的设计与源码</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2017-04-20 / 8 min read
+          2017-04-20 / 7 min read
         </div>
         
         <div class="post-content yue">
-          <p>从一年半之前接触Django，一年前接触Django-REST-framework（后称drf），再后来中间有个空挡，一直没有真正用到drf。由于当时各方面的素质比较差，理解restful和drf的设计很吃力，记得很清楚，还是在实习的时候，看个drf的英文文档要看好几遍，结果还是有很多概念看不明白，最后还是硬着头皮死记硬背地使用。最近又重新接触到，翻看文档发现，当时很难理解的东西，如今看一遍就懂了，顺带看了源码，也比较容易理解，至少比Django的源码简单不少。</p>
-<p>下面开始从drf的设计和源码两个方面，结合自己的看法，谈谈drf。</p>
+          <p>最近又重新接触DRF，翻看文档发现，当时很难理解的东西，如今看一遍就懂了，顺带看了源码，也比较容易理解，至少比Django的源码简单不少。下面开始从DRF的设计和源码两个方面，结合自己的看法，谈谈DRF。</p>
+<!-- more -->
 <h2 id="apiview">APIView</h2>
-<p>APIView是drf概念体系中最基本类视图，它基于Django的View，同时又实现了一层对自己创造的概念的封装，比如<code>permission_classes</code>，<code>render_classes</code>，<code>authentication_classes</code>等，相当于请求过来后又进入一层，过滤（验证、初始化）完要走的这些classes，才能执行到我们自己实现的view。</p>
+<p>APIView是DRF概念体系中最基本类视图，它基于Django的View，同时又实现了一层对自己创造的概念的封装，比如<code>permission_classes</code>，<code>render_classes</code>，<code>authentication_classes</code>等，相当于请求过来后又进入一层，过滤（验证、初始化）完要走的这些classes，才能执行到我们自己实现的view。</p>
 <h2 id="mixin">Mixin</h2>
 <p>在介绍Generic view前先说一下mixin。说白了，官方给的案例里面的mixin，就是对model的object增删改查的原子操作。比如<code>RetrieveModelMixin</code>，通过get_object先获取到对象，然后通过serializer拿到序列化数据。</p>
 <pre><code class="language-python">class RetrieveModelMixin(object):
@@ -134,7 +134,7 @@
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
 </code></pre>
-<p>如果要实现的逻辑不是很复杂的话，直接在view中继承一个<code>[List[Create[Update]]]APIView</code>，然后指定下<code>serializer_class</code>，<code>permission_class</code>，<code>queryset</code>等就可以了。对drf熟悉的话相信这种方式实现功能会很快。</p>
+<p>如果要实现的逻辑不是很复杂的话，直接在view中继承一个<code>[List[Create[Update]]]APIView</code>，然后指定下<code>serializer_class</code>，<code>permission_class</code>，<code>queryset</code>等就可以了。对DRF熟悉的话相信这种方式实现功能会很快。</p>
 <h2 id="viewsets">Viewsets</h2>
 <p>先看代码，ViewSet继承了<code>ViewSetMixin</code>和<code>APIView</code>，<code>ViewSetMix</code>是<code>APIView</code>中<code>as_view</code>的重写，实现请求到action的转发，虽然Django自带的View也实现了as_view，但只是传递初始化参数，确实没有这个请求转发到action的实现，APIView里面也没有。这里也可以学习到：Python的多重继承中，子类形参的先后顺序，影响到执行的是哪个类中的<code>as_view</code>方法，相当于<code>ViewSetMixin</code>又继承了<code>APIView</code>。</p>
 <pre><code class="language-python">class ViewSet(ViewSetMixin, views.APIView):
@@ -143,7 +143,7 @@
     &quot;&quot;&quot;
     pass
 </code></pre>
-<p>viewsets和APIView不一样的地方在于，它要表达的更多的是一个方法视图的集合，他的内部是已经实现了的<code>list()</code>，<code>retrieve()</code>，<code>delete()</code>，<code>update()</code>的实现，如果实现用drf的DefaultRouter。router和as_view都可以实现GET请求--&gt;list()的转发，值得一提的还有<code>detail_route</code>和<code>list_route</code>(最新版本推荐使用<code>action</code>)，他们需要在urls中配置router的前提下使用，在Router类的<code>get_url</code>里面的<code>get_routers</code>执行，然后获得所有的路由列表，再进行action转发。</p>
+<p>viewsets和APIView不一样的地方在于，它要表达的更多的是一个方法视图的集合，他的内部是已经实现了的<code>list()</code>，<code>retrieve()</code>，<code>delete()</code>，<code>update()</code>的实现，如果实现用DRF的DefaultRouter。router和as_view都可以实现GET请求--&gt;list()的转发，值得一提的还有<code>detail_route</code>和<code>list_route</code>(最新版本推荐使用<code>action</code>)，他们需要在urls中配置router的前提下使用，在Router类的<code>get_url</code>里面的<code>get_routers</code>执行，然后获得所有的路由列表，再进行action转发。</p>
 <pre><code class="language-python"># account/views.py
 class AccountViewSet(viewsets.ModelViewSet):
     &quot;&quot;&quot;
@@ -183,11 +183,11 @@ urlpatterns = router.urls
 </code></pre>
 <p>Serializer相当于View和Model的中间层，避免view频繁直接操作model object的同时，规范数据字段格式、内容、validator、提供序列化数据等等，同时可以定义方法实现对model的特定操作。serializer不适合处理业务逻辑，它要做的就是对数据传入传出的处理，保证数据正确。通常为了验证和序列化各项数据，serializer的代码加上validator也集中了较大的工作量。</p>
 <h2 id="其它">其它</h2>
-<p>drf最主要的就是上面提到的一些概念，也许在刚接触Django Web的话没有接触过，但是这应该是drf中最常用的。其他的比如router、Throttling、validator也比较实用，甚至也是必须掌握的，但是drf的文档写的确定很详细，使用方法不再介绍。</p>
+<p>DRF最主要的就是上面提到的一些概念，也许在刚接触Django Web的话没有接触过，但是这应该是DRF中最常用的。其他的比如router、Throttling、validator也比较实用，甚至也是必须掌握的，但是DRF的文档写的确定很详细，使用方法不再介绍。</p>
 <h2 id="总结">总结</h2>
-<p>我的理解，drf是基于“Don't repeat yourself”原则，提出一个Web开发的规范，它代码里提供了规范的接口，和最基础的使用例子，而在实际的复杂逻辑开发中，需要的是对各种概念的“custome”定制，几乎文档每一页都提供了定制的介绍。实际的应用里面不会是简单的增删改查，而是需要走一定的逻辑处理后的增删改查，同时还有对基础操作频繁的复用。drf通过把web业务系统中会出现的每一步流程拆分，进行模块化，概念化，让开发者知道需要开发的业务属于哪一种概念，放到哪一个模块下面，从而在drf的大框架下特定的位置编写，这样减少了一份功能多份代码实现的麻烦，也因为规范化coding提高了开发者的效率。</p>
-<p>当然drf也有缺点，它对新手不够友好，一些封装太极致，以至于不容易明白程序的执行流程，比如我初次看<code>viewsets</code>、<code>GenericAPIView</code>的时候。</p>
-<p>最后我基于drf的文档，学习过程中写了一个论坛demo：<a href="https://github.com/tcitry/drforum">drforum</a>的论坛例子，可以直接runserver调试。通过<code>127.0.0.1:8000/docs</code>可以查看汇总的接口，这里使用了<a href="http://drfdocs.com/">DRF Docs</a>。</p>
+<p>我的理解，DRF是基于“Don't repeat yourself”原则，提出一个Web开发的规范，它代码里提供了规范的接口，和最基础的使用例子，而在实际的复杂逻辑开发中，需要的是对各种概念的“custome”定制，几乎文档每一页都提供了定制的介绍。实际的应用里面不会是简单的增删改查，而是需要走一定的逻辑处理后的增删改查，同时还有对基础操作频繁的复用。DRF通过把web业务系统中会出现的每一步流程拆分，进行模块化，概念化，让开发者知道需要开发的业务属于哪一种概念，放到哪一个模块下面，从而在DRF的大框架下特定的位置编写，这样减少了一份功能多份代码实现的麻烦，也因为规范化coding提高了开发者的效率。</p>
+<p>当然DRF也有缺点，它对新手不够友好，一些封装太极致，以至于不容易明白程序的执行流程，比如我初次看<code>viewsets</code>、<code>GenericAPIView</code>的时候。</p>
+<p>最后我基于DRF的文档，学习过程中写了一个论坛demo：<a href="https://github.com/tcitry/DRForum">DRForum</a>的论坛例子，可以直接runserver调试。通过<code>127.0.0.1:8000/docs</code>可以查看汇总的接口，这里使用了<a href="http://DRFdocs.com/">DRF Docs</a>。</p>
 
         </div>
 
