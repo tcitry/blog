@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2020 on Yindongliang</title>
+    <link>https://yindongliang.com/categories/2020/</link>
+    <description>Recent content in 2020 on Yindongliang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://yindongliang.com/categories/2020/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>看了下 Protobuf</title>
+      <link>https://yindongliang.com/posts/Hello-Protobuf/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/posts/Hello-Protobuf/</guid>
+      <description>RPC RPC，全称 Remote Procedure Call，中文叫远程过程调用。 go 语言基于标准库实现了一套自己的 RPC 调用规则：方法只能有两个可序列化的参数，其中第二个参数是指</description>
+    </item>
+    
+    <item>
+      <title>乒乓理财，了解一下？</title>
+      <link>https://yindongliang.com/posts/pingpang-financing/</link>
+      <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/posts/pingpang-financing/</guid>
+      <description>谁需要看 如果你有100 万要理财，这个不适合你。如果你只有 1 万？那向你介绍一下我总结的理财方案~ 认识乒乓球拍 关于球拍的分类，我从各个角度出发整</description>
+    </item>
+    
+    <item>
+      <title>使用 typora 来编辑你的 hugo 博客</title>
+      <link>https://yindongliang.com/posts/use-typora-write-hugo-blog/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/posts/use-typora-write-hugo-blog/</guid>
+      <description>最近 typroa 用的比较多，然后又想着继续维护在 github page 的博客，觉得把 typora 编辑完的东西再复制到博客项目里很麻烦，于是开始了一番折腾。 目标是啥 在 typora 写的笔记放在</description>
+    </item>
+    
+  </channel>
+</rss>

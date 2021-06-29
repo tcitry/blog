@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTML on Yindongliang</title>
+    <link>https://yindongliang.com/docs/FE/HTML/</link>
+    <description>Recent content in HTML on Yindongliang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="https://yindongliang.com/docs/FE/HTML/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HTML</title>
+      <link>https://yindongliang.com/docs/FE/HTML/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/HTML/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>常用标签 input 属性: name 提交时发送给后端的 key 值，value为input 的 value</description>
+    </item>
+    
+  </channel>
+</rss>

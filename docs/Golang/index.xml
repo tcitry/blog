@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yindongliang</title>
+    <link>https://yindongliang.com/docs/Golang/</link>
+    <description>Recent content on Yindongliang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="https://yindongliang.com/docs/Golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>Golang 常用命令 官方文档 https://golang.org/cmd/go/ run go run main.go -mod选项，go help modules查看详细，-mod 在其他部分命令中也可指定，具体是 build, clean, get, install, list, run, and test vendor mod readonly test 测试</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E5%B7%A5%E5%85%B7%E5%8C%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E5%B7%A5%E5%85%B7%E5%8C%85/</guid>
+      <description>参考 Go语言不完全工具列表 Json 序列化工具 Golang 的 json 包 Easyjson https://github.com/mailru/easyjson gomock 根据接口生成 mock 文件 go-sqlmock SQL 生成工具 gendry</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E6%A0%87%E5%87%86%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E6%A0%87%E5%87%86%E5%BA%93/</guid>
+      <description>Buildin 文档 https://golang.org/pkg/builtin uintptr 足够大、可以存放任何指针地址的类型。常用来将指针转换后进行寻址计算。 uintptr is an integer type that is large enough to hold the bit pattern of any pointer. func Offsetof(x ArbitraryType) uintptr func Sizeof(x ArbitraryType) uintptr func Alignof(x ArbitraryType) uintptr 错误</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
+      <description>环境变量 Example go env GO111MODULE=&amp;#34;auto&amp;#34; GOARCH=&amp;#34;amd64&amp;#34; GOBIN=&amp;#34;&amp;#34; GOCACHE=&amp;#34;/Users/yindongliang/Library/Caches/go-build&amp;#34; GOENV=&amp;#34;/Users/yindongliang/Library/Application Support/go/env&amp;#34; GOEXE=&amp;#34;&amp;#34; GOFLAGS=&amp;#34;&amp;#34; GOHOSTARCH=&amp;#34;amd64&amp;#34; GOHOSTOS=&amp;#34;darwin&amp;#34; GOINSECURE=&amp;#34;&amp;#34; GONOPROXY=&amp;#34;*.luojilab.com&amp;#34; GONOSUMDB=&amp;#34;*.luojilab.com&amp;#34; GOOS=&amp;#34;darwin&amp;#34; GOPATH=&amp;#34;/Users/yindongliang/go/go1.14.1/bin&amp;#34; GOPRIVATE=&amp;#34;*.luojilab.com&amp;#34; GOPROXY=&amp;#34;https://goproxy.cn&amp;#34; GOROOT=&amp;#34;/Users/yindongliang/go/go1.14.1&amp;#34; GOSUMDB=&amp;#34;sum.golang.org&amp;#34; GOTMPDIR=&amp;#34;&amp;#34; GOTOOLDIR=&amp;#34;/Users/yindongliang/go/go1.14.1/pkg/tool/darwin_amd64&amp;#34; GCCGO=&amp;#34;gccgo&amp;#34; AR=&amp;#34;ar&amp;#34; CC=&amp;#34;clang&amp;#34; CXX=&amp;#34;clang++&amp;#34; CGO_ENABLED=&amp;#34;1&amp;#34; GOMOD=&amp;#34;/Users/yindongliang/github/golang/ants/go.mod&amp;#34; CGO_CFLAGS=&amp;#34;-g -O2&amp;#34; CGO_CPPFLAGS=&amp;#34;&amp;#34; CGO_CXXFLAGS=&amp;#34;-g -O2&amp;#34; CGO_FFLAGS=&amp;#34;-g -O2&amp;#34; CGO_LDFLAGS=&amp;#34;-g -O2&amp;#34; PKG_CONFIG=&amp;#34;pkg-config&amp;#34; GOGCCFLAGS=&amp;#34;-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/tg/wm0sdf5x16xddmy4r63cs7fw0000gn/T/go-build097402637=/tmp/go-build -gno-record-gcc-switches -fno-common&amp;#34; GO111MODULE 文档 https://github.com/golang/go/wiki/Modules vgo 就是后来的 go module GO111MODULE=off 无模块支</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E8%AF%AD%E6%B3%95/</guid>
+      <description>数据类型 类型转换 数据结构 程序控制 for/break/continue for 循环 go 中对字符串 for 循环得到的是索引和 int32 类型的数字 进制 十六进制 0x 开头为十六进制 八进制 0 开头为八进制 switch/case/default fallthrough select/case/default “</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83/</guid>
+      <description>语言规范 控制 Goroutine 的生命周期 使用 gofmt Context 一般作为第一个参数传参 copy struct 时需注意 slice 的拷贝 Don&amp;rsquo;t Panic pkg 里面的包最好有 example 传值还是传指针？ Error 未处理 Share memory by communicating; don&amp;rsquo;t communicate by sharing memory. 在</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <description>面试题解析 https://toutiao.io/posts/qepeli/preview string 和 []byte 互转 string 不能直接和byte数组转换 string可以和byte的切片转换 1,string 转为[]byte var str string = &amp;ldquo;test&amp;rdquo; var data []byte = []byte(str) 2,byte转为</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="环境变量 Example go env GO111MODULE=&#34;auto&#34; GOARCH=&#34;amd64&#34; GOBIN=&#34;&#34; GOCACHE=&#34;/Users/yindongliang/Library/Caches/go-build&#34; GOENV=&#34;/Users/yindongliang/Library/Application Support/go/env&#34; GOEXE=&#34;&#34; GOFLAGS=&#34;&#34; GOHOSTARCH=&#34;amd64&#34; GOHOSTOS=&#34;darwin&#34; GOINSECURE=&#34;&#34; GONOPROXY=&#34;*.luojilab.com&#34; GONOSUMDB=&#34;*.luojilab.com&#34; GOOS=&#34;darwin&#34; GOPATH=&#34;/Users/yindongliang/go/go1.14.1/bin&#34; GOPRIVATE=&#34;*.luojilab.com&#34; GOPROXY=&#34;https://goproxy.cn&#34; GOROOT=&#34;/Users/yindongliang/go/go1.14.1&#34; GOSUMDB=&#34;sum.golang.org&#34; GOTMPDIR=&#34;&#34; GOTOOLDIR=&#34;/Users/yindongliang/go/go1.14.1/pkg/tool/darwin_amd64&#34; GCCGO=&#34;gccgo&#34; AR=&#34;ar&#34; CC=&#34;clang&#34; CXX=&#34;clang&#43;&#43;&#34; CGO_ENABLED=&#34;1&#34; GOMOD=&#34;/Users/yindongliang/github/golang/ants/go.mod&#34; CGO_CFLAGS=&#34;-g -O2&#34; CGO_CPPFLAGS=&#34;&#34; CGO_CXXFLAGS=&#34;-g -O2&#34; CGO_FFLAGS=&#34;-g -O2&#34; CGO_LDFLAGS=&#34;-g -O2&#34; PKG_CONFIG=&#34;pkg-config&#34; GOGCCFLAGS=&#34;-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/tg/wm0sdf5x16xddmy4r63cs7fw0000gn/T/go-build097402637=/tmp/go-build -gno-record-gcc-switches -fno-common&#34; GO111MODULE 文档 https://github.com/golang/go/wiki/Modules vgo 就是后来的 go module GO111MODULE=off 无模块支">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="环境变量 Example go env GO111MODULE=&#34;auto&#34; GOARCH=&#34;amd64&#34; GOBIN=&#34;&#34; GOCACHE=&#34;/Users/yindongliang/Library/Caches/go-build&#34; GOENV=&#34;/Users/yindongliang/Library/Application Support/go/env&#34; GOEXE=&#34;&#34; GOFLAGS=&#34;&#34; GOHOSTARCH=&#34;amd64&#34; GOHOSTOS=&#34;darwin&#34; GOINSECURE=&#34;&#34; GONOPROXY=&#34;*.luojilab.com&#34; GONOSUMDB=&#34;*.luojilab.com&#34; GOOS=&#34;darwin&#34; GOPATH=&#34;/Users/yindongliang/go/go1.14.1/bin&#34; GOPRIVATE=&#34;*.luojilab.com&#34; GOPROXY=&#34;https://goproxy.cn&#34; GOROOT=&#34;/Users/yindongliang/go/go1.14.1&#34; GOSUMDB=&#34;sum.golang.org&#34; GOTMPDIR=&#34;&#34; GOTOOLDIR=&#34;/Users/yindongliang/go/go1.14.1/pkg/tool/darwin_amd64&#34; GCCGO=&#34;gccgo&#34; AR=&#34;ar&#34; CC=&#34;clang&#34; CXX=&#34;clang&#43;&#43;&#34; CGO_ENABLED=&#34;1&#34; GOMOD=&#34;/Users/yindongliang/github/golang/ants/go.mod&#34; CGO_CFLAGS=&#34;-g -O2&#34; CGO_CPPFLAGS=&#34;&#34; CGO_CXXFLAGS=&#34;-g -O2&#34; CGO_FFLAGS=&#34;-g -O2&#34; CGO_LDFLAGS=&#34;-g -O2&#34; PKG_CONFIG=&#34;pkg-config&#34; GOGCCFLAGS=&#34;-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/tg/wm0sdf5x16xddmy4r63cs7fw0000gn/T/go-build097402637=/tmp/go-build -gno-record-gcc-switches -fno-common&#34; GO111MODULE 文档 https://github.com/golang/go/wiki/Modules vgo 就是后来的 go module GO111MODULE=off 无模块支" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yindongliang.com/docs/Golang/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" />
+
+<title>环境变量 | Yindongliang</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.d92e572ecaecb8ab81df83c495fc50c9330006fab2d0600e9c3ab1d52656c8ab.css" integrity="sha256-2S5XLsrsuKuB34PElfxQyTMABvqy0GAOnDqx1SZWyKs=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.189e20487a027271e4499cb8ae287b30e4ec57322ce20790cd6575e7ae46c682.js" integrity="sha256-GJ4gSHoCcnHkSZy4rih7MOTsVzIs4geQzWV1565GxoI=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-50554094-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/logo.jpeg" alt="Logo" /><span>Yindongliang</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+<ul>
+    <li><a href="/archives">Archives</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://github.com/tcitry" target="_blank">🚀 Github</a></li>
+    <li><a href="/posts/index.xml" target="_blank">📚 RSS</a></li>
+</ul>
+<hr>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ab6241a9c9348727e1ed30d9d7253a0e" class="toggle" checked />
+    <label for="section-ab6241a9c9348727e1ed30d9d7253a0e" class="flex justify-between">
+      <a role="button" class="">Golang</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="">命令行</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E5%B7%A5%E5%85%B7%E5%8C%85/" class="">工具包</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E6%A0%87%E5%87%86%E5%BA%93/" class="">标准库</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class=" active">环境变量</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E8%AF%AD%E6%B3%95/" class="">语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83/" class="">语言规范</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="">面试题</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>环境变量</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#环境变量">环境变量</a>
+      <ul>
+        <li><a href="#example">Example</a></li>
+        <li><a href="#go111module">GO111MODULE</a></li>
+        <li><a href="#gopath">GOPATH</a></li>
+        <li><a href="#goroot">GOROOT</a></li>
+        <li><a href="#goos-和-goarch">GOOS 和 GOARCH</a></li>
+        <li><a href="#goarm">GOARM</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="环境变量">环境变量</h1>
+<h2 id="example">Example</h2>
+<p><code>go env</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#8be9fd;font-style:italic">GO111MODULE</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;auto&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOARCH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;amd64&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOBIN</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOCACHE</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/Users/yindongliang/Library/Caches/go-build&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOENV</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/Users/yindongliang/Library/Application Support/go/env&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOEXE</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOFLAGS</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOHOSTARCH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;amd64&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOHOSTOS</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;darwin&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOINSECURE</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GONOPROXY</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;*.luojilab.com&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GONOSUMDB</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;*.luojilab.com&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOOS</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;darwin&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOPATH</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/Users/yindongliang/go/go1.14.1/bin&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOPRIVATE</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;*.luojilab.com&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOPROXY</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://goproxy.cn&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOROOT</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/Users/yindongliang/go/go1.14.1&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOSUMDB</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sum.golang.org&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOTMPDIR</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOTOOLDIR</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/Users/yindongliang/go/go1.14.1/pkg/tool/darwin_amd64&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GCCGO</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;gccgo&#34;</span>
+<span style="color:#8be9fd;font-style:italic">AR</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;ar&#34;</span>
+<span style="color:#8be9fd;font-style:italic">CC</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;clang&#34;</span>
+<span style="color:#8be9fd;font-style:italic">CXX</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;clang++&#34;</span>
+<span style="color:#8be9fd;font-style:italic">CGO_ENABLED</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;1&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOMOD</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/Users/yindongliang/github/golang/ants/go.mod&#34;</span>
+<span style="color:#8be9fd;font-style:italic">CGO_CFLAGS</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;-g -O2&#34;</span>
+<span style="color:#8be9fd;font-style:italic">CGO_CPPFLAGS</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>
+<span style="color:#8be9fd;font-style:italic">CGO_CXXFLAGS</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;-g -O2&#34;</span>
+<span style="color:#8be9fd;font-style:italic">CGO_FFLAGS</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;-g -O2&#34;</span>
+<span style="color:#8be9fd;font-style:italic">CGO_LDFLAGS</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;-g -O2&#34;</span>
+<span style="color:#8be9fd;font-style:italic">PKG_CONFIG</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;pkg-config&#34;</span>
+<span style="color:#8be9fd;font-style:italic">GOGCCFLAGS</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/tg/wm0sdf5x16xddmy4r63cs7fw0000gn/T/go-build097402637=/tmp/go-build -gno-record-gcc-switches -fno-common&#34;</span>
+</code></pre></div><h2 id="go111module">GO111MODULE</h2>
+<p>文档  <a href="https://github.com/golang/go/wiki/Modules">https://github.com/golang/go/wiki/Modules</a></p>
+<p>vgo 就是后来的 go module</p>
+<ul>
+<li>GO111MODULE=off 无模块支持，go 会从 GOPATH 和 vendor 文件夹寻找包。</li>
+<li>GO111MODULE=on 模块支持，go 会忽略 GOPATH 和 vendor 文件夹，只根据 go.mod 下载依赖。</li>
+<li>GO111MODULE=auto 在 $GOPATH/src 外面且根目录有 go.mod 文件时，开启模块支持。</li>
+</ul>
+<h2 id="gopath">GOPATH</h2>
+<p><code>~/go/bin</code> 目录</p>
+<h2 id="goroot">GOROOT</h2>
+<p><code>~/go</code> 即 go 的安装路径，下面有bin，src，pkg等</p>
+<h2 id="goos-和-goarch">GOOS 和 GOARCH</h2>
+<p>参考 <a href="https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63">https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63</a></p>
+<p>打印 Go 支持的目标系统列表</p>
+<pre><code>go tool dist list
+</code></pre><h2 id="goarm">GOARM</h2>
+</article>
+ 
+      <div>
+    <span style="float:left">
+    
+        
+    
+    </span>
+    <span style="float:right">
+    
+        
+    
+    </span>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+              delimiters: [
+                  {left: "$$", right: "$$", display: true},
+                  {left: "$", right: "$", display: false},
+                  {left: "\\(", right: "\\)", display: false},
+                  {left: "\\[", right: "\\]", display: true}
+              ]
+          });
+    });
+</script>
+
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
+document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yindongliang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#环境变量">环境变量</a>
+      <ul>
+        <li><a href="#example">Example</a></li>
+        <li><a href="#go111module">GO111MODULE</a></li>
+        <li><a href="#gopath">GOPATH</a></li>
+        <li><a href="#goroot">GOROOT</a></li>
+        <li><a href="#goos-和-goarch">GOOS 和 GOARCH</a></li>
+        <li><a href="#goarm">GOARM</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

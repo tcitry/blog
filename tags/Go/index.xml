@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Yindongliang</title>
+    <link>https://yindongliang.com/tags/Go/</link>
+    <description>Recent content in Go on Yindongliang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://yindongliang.com/tags/Go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>看了下 Protobuf</title>
+      <link>https://yindongliang.com/posts/Hello-Protobuf/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/posts/Hello-Protobuf/</guid>
+      <description>RPC RPC，全称 Remote Procedure Call，中文叫远程过程调用。 go 语言基于标准库实现了一套自己的 RPC 调用规则：方法只能有两个可序列化的参数，其中第二个参数是指</description>
+    </item>
+    
+  </channel>
+</rss>

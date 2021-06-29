@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on Yindongliang</title>
+    <link>https://yindongliang.com/docs/FE/JavaScript/</link>
+    <description>Recent content in JavaScript on Yindongliang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="https://yindongliang.com/docs/FE/JavaScript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/JavaScript/BOM/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/JavaScript/BOM/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/JavaScript/DOM/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/JavaScript/DOM/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/JavaScript/%E4%B8%89%E6%96%B9%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/JavaScript/%E4%B8%89%E6%96%B9%E5%BA%93/</guid>
+      <description>工具库 lodash</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/JavaScript/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/JavaScript/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <description>概念 DOM、BOM、Window、Document DOM 是操作文档的 API，Document 是其一个对象。 BOM 是操作浏览器的 API，Window 是</description>
+    </item>
+    
+  </channel>
+</rss>

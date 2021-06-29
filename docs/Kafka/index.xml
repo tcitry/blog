@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Middleware on Yindongliang</title>
+    <link>https://yindongliang.com/docs/Kafka/</link>
+    <description>Recent content in Middleware on Yindongliang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="https://yindongliang.com/docs/Kafka/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Kafka/Kafka/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Kafka/Kafka/</guid>
+      <description>概念 group group*.*id是一个字符串，唯一标识一个consumer group. consumer group下订阅的topic下的每个分区只能分配给某个group下的</description>
+    </item>
+    
+  </channel>
+</rss>

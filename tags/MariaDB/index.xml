@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MariaDB on Yindongliang</title>
+    <link>https://yindongliang.com/tags/MariaDB/</link>
+    <description>Recent content in MariaDB on Yindongliang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 10 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://yindongliang.com/tags/MariaDB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vagrant 虚拟机 Ubuntu16.04 安装 MariaDB</title>
+      <link>https://yindongliang.com/posts/ubuntu-MariaDB/</link>
+      <pubDate>Mon, 10 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/posts/ubuntu-MariaDB/</guid>
+      <description>由于宿主机安装了 MySQL，为了避免安装 MariaDB 造成 MySQL 无法使用，所以在 Vagrant 中安装 Mariadb。 更换网易 apt-get 源 /etc/apt/sources.list 读取源软件列表 sudo apt update 更新软件版本 sudo apt upgrade</description>
+    </item>
+    
+  </channel>
+</rss>

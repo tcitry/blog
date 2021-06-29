@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RPC RPC，全称 Remote Procedure Call，中文叫远程过程调用。 go 语言基于标准库实现了一套自己的 RPC 调用规则：方法只能有两个可序列化的参数，其中第二个参数是指">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="看了下 Protobuf" />
+<meta property="og:description" content="RPC RPC，全称 Remote Procedure Call，中文叫远程过程调用。 go 语言基于标准库实现了一套自己的 RPC 调用规则：方法只能有两个可序列化的参数，其中第二个参数是指" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yindongliang.com/posts/Hello-Protobuf/" />
+<meta property="article:published_time" content="2020-09-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-22T00:00:00+00:00" />
+<title>看了下 Protobuf | Yindongliang</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.d92e572ecaecb8ab81df83c495fc50c9330006fab2d0600e9c3ab1d52656c8ab.css" integrity="sha256-2S5XLsrsuKuB34PElfxQyTMABvqy0GAOnDqx1SZWyKs=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.189e20487a027271e4499cb8ae287b30e4ec57322ce20790cd6575e7ae46c682.js" integrity="sha256-GJ4gSHoCcnHkSZy4rih7MOTsVzIs4geQzWV1565GxoI=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-50554094-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/logo.jpeg" alt="Logo" /><span>Yindongliang</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+<ul>
+    <li><a href="/archives">Archives</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://github.com/tcitry" target="_blank">🚀 Github</a></li>
+    <li><a href="/posts/index.xml" target="_blank">📚 RSS</a></li>
+</ul>
+<hr>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ab6241a9c9348727e1ed30d9d7253a0e" class="toggle"  />
+    <label for="section-ab6241a9c9348727e1ed30d9d7253a0e" class="flex justify-between">
+      <a role="button" class="">Golang</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="">命令行</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E5%B7%A5%E5%85%B7%E5%8C%85/" class="">工具包</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E6%A0%87%E5%87%86%E5%BA%93/" class="">标准库</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="">环境变量</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E8%AF%AD%E6%B3%95/" class="">语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83/" class="">语言规范</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="">面试题</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>看了下 Protobuf</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#rpc">RPC</a>
+          <ul>
+            <li><a href="#举个例子">举个例子</a></li>
+          </ul>
+        </li>
+        <li><a href="#protobuf">Protobuf</a>
+          <ul>
+            <li><a href="#举个例子-1">举个例子</a></li>
+            <li><a href="#protobuf-进阶语法">Protobuf 进阶语法</a></li>
+          </ul>
+        </li>
+        <li><a href="#grpc">gRPC</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/Hello-Protobuf/">看了下 Protobuf</a>
+  </h1>
+  
+  <h5>Sep 22, 2020</h5>
+
+
+
+  
+  <div>
+    
+      <a href="/categories/2020/">2020</a>
+  </div>
+  
+
+  
+  <div>
+    
+      <a href="/tags/Golang/">Golang</a>, 
+      <a href="/tags/RPC/">RPC</a>
+  </div>
+  
+
+
+
+<h2 id="rpc">RPC</h2>
+<p>RPC，全称 Remote Procedure Call，中文叫远程过程调用。</p>
+<p>go 语言基于标准库实现了一套自己的 RPC 调用规则：方法只能有两个可序列化的参数，其中第二个参数是指针类型，并且返回一个error类型，同时必须是公开的方法<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<blockquote>
+<p>Only methods that satisfy these criteria will be made available for remote access; other methods will be ignored:</p>
+</blockquote>
+<pre><code>- the method's type is exported.
+- the method is exported.
+- the method has two arguments, both exported (or builtin) types.
+- the method's second argument is a pointer.
+- the method has return type error.
+</code></pre><blockquote>
+<p>In effect, the method must look schematically like</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> (t <span style="color:#ff79c6">*</span>T) <span style="color:#50fa7b">MethodName</span>(argType T1, replyType <span style="color:#ff79c6">*</span>T2) <span style="color:#8be9fd">error</span>
+</code></pre></div><h3 id="举个例子">举个例子</h3>
+<p>定义函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">type</span> HelloService <span style="color:#8be9fd;font-style:italic">struct</span> {
+}
+
+<span style="color:#8be9fd;font-style:italic">func</span> (h <span style="color:#ff79c6">*</span>HelloService) <span style="color:#50fa7b">SayHello</span>(s <span style="color:#8be9fd">string</span>, sp <span style="color:#ff79c6">*</span><span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">error</span> {
+	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;hello func&#34;</span>, s, sp)
+	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">nil</span>
+}
+</code></pre></div><p>server.go</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+	rpc.<span style="color:#50fa7b">RegisterName</span>(<span style="color:#f1fa8c">&#34;HelloService&#34;</span>, <span style="color:#8be9fd;font-style:italic">new</span>(proto.HelloService))
+	listener, err <span style="color:#ff79c6">:=</span> net.<span style="color:#50fa7b">Listen</span>(<span style="color:#f1fa8c">&#34;tcp&#34;</span>, <span style="color:#f1fa8c">&#34;:6666&#34;</span>)
+	<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+		<span style="color:#8be9fd;font-style:italic">panic</span>(err)
+	}
+	conn, err <span style="color:#ff79c6">:=</span> listener.<span style="color:#50fa7b">Accept</span>()
+	<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+		<span style="color:#8be9fd;font-style:italic">panic</span>(err)
+	}
+	rpc.<span style="color:#50fa7b">ServeConn</span>(conn)
+}
+</code></pre></div><p>client.go</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>()  {
+	client, err <span style="color:#ff79c6">:=</span> rpc.<span style="color:#50fa7b">Dial</span>(<span style="color:#f1fa8c">&#34;tcp&#34;</span>, <span style="color:#f1fa8c">&#34;localhost:6666&#34;</span>)
+	<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+		log.<span style="color:#50fa7b">Fatal</span>(<span style="color:#f1fa8c">&#34;dialing:&#34;</span>, err)
+	}
+	<span style="color:#8be9fd;font-style:italic">var</span> reply <span style="color:#8be9fd">string</span>
+	err = client.<span style="color:#50fa7b">Call</span>(<span style="color:#f1fa8c">&#34;HelloService.SayHello&#34;</span>, <span style="color:#f1fa8c">&#34;param&#34;</span>, <span style="color:#ff79c6">&amp;</span>reply)
+	<span style="color:#ff79c6">if</span> err <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">nil</span> {
+		log.<span style="color:#50fa7b">Fatal</span>(err)
+	}
+	fmt.<span style="color:#50fa7b">Println</span>(reply) <span style="color:#6272a4">//hello func param 0xc00009d390
+</span><span style="color:#6272a4"></span>}
+</code></pre></div><p>也可以参考这个 <a href="https://snassr.io/post/0005_tcprpcserver/">https://snassr.io/post/0005_tcprpcserver/</a></p>
+<p>这样在 go 语言内部也可以直接使用 RPC 调用了。但是也就仅限于 go 语言的项目之间的通信，如果要跨语言，还需要一套标准的描述语言来定义自己有什么方法供别人使用，那就有请 Protobuf。</p>
+<h2 id="protobuf">Protobuf</h2>
+<p>Protobuf 作为接口规范的描述语言，可以作为设计安全的跨语言 RPC 接口的基础工具。</p>
+<h3 id="举个例子-1">举个例子</h3>
+<p>定义函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">type</span> HelloService <span style="color:#8be9fd;font-style:italic">struct</span> {
+}
+
+<span style="color:#8be9fd;font-style:italic">func</span> (h <span style="color:#ff79c6">*</span>HelloService) <span style="color:#50fa7b">SayHello</span>(s <span style="color:#8be9fd">string</span>, sp <span style="color:#ff79c6">*</span><span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">error</span> {
+	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;hello func&#34;</span>, s, sp)
+	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">nil</span>
+}
+</code></pre></div><p>编写 protobuf 文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-protobuf" data-lang="protobuf">syntax <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;proto3&#34;</span>;
+
+<span style="color:#ff79c6">package</span> proto;
+
+<span style="color:#8be9fd;font-style:italic">service</span> HelloService {
+  <span style="color:#ff79c6">rpc</span> SayHello(HelloRequest) <span style="color:#ff79c6">returns</span> (HelloResponse);
+}
+
+<span style="color:#8be9fd;font-style:italic">message</span> <span style="color:#50fa7b">HelloRequest</span> {
+  <span style="color:#8be9fd">string</span> name <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;
+  <span style="color:#8be9fd">string</span> name_pointer <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>;
+}
+
+<span style="color:#8be9fd;font-style:italic">message</span> <span style="color:#50fa7b">HelloResponse</span> {
+  
+}
+
+</code></pre></div><p>生成 hello.pb.go 文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">protoc --go_out<span style="color:#ff79c6">=</span>. proto/hello.proto
+
+<span style="color:#6272a4"># 如果使用 gRPC 框架</span>
+protoc --go_out<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">plugins</span><span style="color:#ff79c6">=</span>grpc:. proto/hello.proto
+</code></pre></div><p>使用 gRPC 框架定义 server 和 client</p>
+<p>Server和 Client 代码参考官方 Helloworld <a href="https://github.com/grpc/grpc-go/tree/master/examples/helloworld">https://github.com/grpc/grpc-go/tree/master/examples/helloworld</a></p>
+<h3 id="protobuf-进阶语法">Protobuf 进阶语法</h3>
+<p>中文资料<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>不多，可以直接参考官方文档<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<h2 id="grpc">gRPC</h2>
+<p>gRPC是基于HTTP/2 协议、使用 Protobuf 作为接口描述语言的一套完整的 RPC 远程调用框架。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>net/rpc 标准库文档 <a href="https://golang.org/pkg/net/rpc/">https://golang.org/pkg/net/rpc/</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Protobuf3 语法指南 <a href="https://colobu.com/2017/03/16/Protobuf3-language-guide/">https://colobu.com/2017/03/16/Protobuf3-language-guide/</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>Protobuf 官方文档 <a href="https://developers.google.com/protocol-buffers/docs/overview">https://developers.google.com/protocol-buffers/docs/overview</a> <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</article>
+ 
+      <div>
+    <span style="float:left">
+    
+    </span>
+    <span style="float:right">
+    
+        下一篇：<a href="https://yindongliang.com/posts/pingpang-financing/">乒乓理财，了解一下？</a>
+    
+    </span>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+              delimiters: [
+                  {left: "$$", right: "$$", display: true},
+                  {left: "$", right: "$", display: false},
+                  {left: "\\(", right: "\\)", display: false},
+                  {left: "\\[", right: "\\]", display: true}
+              ]
+          });
+    });
+</script>
+
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
+document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yindongliang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#rpc">RPC</a>
+          <ul>
+            <li><a href="#举个例子">举个例子</a></li>
+          </ul>
+        </li>
+        <li><a href="#protobuf">Protobuf</a>
+          <ul>
+            <li><a href="#举个例子-1">举个例子</a></li>
+            <li><a href="#protobuf-进阶语法">Protobuf 进阶语法</a></li>
+          </ul>
+        </li>
+        <li><a href="#grpc">gRPC</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

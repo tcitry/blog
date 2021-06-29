@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="数据类型 类型转换 数据结构 程序控制 for/break/continue for 循环 go 中对字符串 for 循环得到的是索引和 int32 类型的数字 进制 十六进制 0x 开头为十六进制 八进制 0 开头为八进制 switch/case/default fallthrough select/case/default “">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="数据类型 类型转换 数据结构 程序控制 for/break/continue for 循环 go 中对字符串 for 循环得到的是索引和 int32 类型的数字 进制 十六进制 0x 开头为十六进制 八进制 0 开头为八进制 switch/case/default fallthrough select/case/default “" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yindongliang.com/docs/Golang/%E8%AF%AD%E6%B3%95/" />
+
+<title>语法 | Yindongliang</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.d92e572ecaecb8ab81df83c495fc50c9330006fab2d0600e9c3ab1d52656c8ab.css" integrity="sha256-2S5XLsrsuKuB34PElfxQyTMABvqy0GAOnDqx1SZWyKs=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.189e20487a027271e4499cb8ae287b30e4ec57322ce20790cd6575e7ae46c682.js" integrity="sha256-GJ4gSHoCcnHkSZy4rih7MOTsVzIs4geQzWV1565GxoI=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-50554094-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/logo.jpeg" alt="Logo" /><span>Yindongliang</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+<ul>
+    <li><a href="/archives">Archives</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://github.com/tcitry" target="_blank">🚀 Github</a></li>
+    <li><a href="/posts/index.xml" target="_blank">📚 RSS</a></li>
+</ul>
+<hr>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ab6241a9c9348727e1ed30d9d7253a0e" class="toggle" checked />
+    <label for="section-ab6241a9c9348727e1ed30d9d7253a0e" class="flex justify-between">
+      <a role="button" class="">Golang</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="">命令行</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E5%B7%A5%E5%85%B7%E5%8C%85/" class="">工具包</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E6%A0%87%E5%87%86%E5%BA%93/" class="">标准库</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="">环境变量</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E8%AF%AD%E6%B3%95/" class=" active">语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83/" class="">语言规范</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="">面试题</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>语法</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#for-循环">for 循环</a></li>
+        <li><a href="#进制">进制</a>
+          <ul>
+            <li><a href="#十六进制">十六进制</a></li>
+            <li><a href="#八进制">八进制</a></li>
+          </ul>
+        </li>
+        <li><a href="#单引号">单引号</a></li>
+        <li><a href="#传值和传引用">传值和传引用</a></li>
+        <li><a href="#select">select</a></li>
+        <li><a href="#itoa">itoa</a></li>
+        <li><a href="#slice-切片和数组">slice 切片和数组</a></li>
+        <li><a href="#defer">defer</a></li>
+        <li><a href="#panic">panic</a></li>
+        <li><a href="#recover">recover</a></li>
+        <li><a href="#internal-package">internal package</a></li>
+        <li><a href="#type-assertions">Type assertions</a></li>
+        <li><a href="#channel">channel</a>
+          <ul>
+            <li><a href="#带缓冲区和不带缓冲区的区">带缓冲区和不带缓冲区的区</a></li>
+          </ul>
+        </li>
+        <li><a href="#特殊注释">特殊注释</a>
+          <ul>
+            <li><a href="#golinkname">go:linkname</a></li>
+            <li><a href="#gonoescape">go:noescape</a></li>
+          </ul>
+        </li>
+        <li><a href="#named-return-value">named return value</a></li>
+        <li><a href="#数学计算">数学计算</a></li>
+        <li><a href="#位移计算">位移计算</a></li>
+        <li><a href="#cgo">CGo</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p>数据类型</p>
+<p>类型转换</p>
+<p>数据结构</p>
+<p>程序控制</p>
+<p>for/break/continue</p>
+<h2 id="for-循环">for 循环</h2>
+<p>go 中对字符串 for 循环得到的是索引和 int32 类型的数字</p>
+<h2 id="进制">进制</h2>
+<h3 id="十六进制">十六进制</h3>
+<p>0x 开头为十六进制</p>
+<h3 id="八进制">八进制</h3>
+<p>0 开头为八进制</p>
+<p>switch/case/default</p>
+<p>fallthrough</p>
+<p>select/case/default</p>
+<p>“面向对象”</p>
+<p>进阶语法</p>
+<p>goto</p>
+<h2 id="单引号">单引号</h2>
+<p>单引号在 Golang 表示一个字符，使用一个特殊类型 rune 表示字符型。rune 为 int32 的别名，它完全等价于 int32，习惯上用它来区别字符值和整数值。rune 表示字符的 Unicode 码值。</p>
+<h2 id="传值和传引用">传值和传引用</h2>
+<p>值类型：int、float、bool、array、sturct等</p>
+<p>引用类型：slice，map，channel，interface，func，string等</p>
+<p>传参给函数时，外部的值类型无法被修改，引用类型会被修改。</p>
+<h2 id="select">select</h2>
+<ol>
+<li>除 default 外，如果只有一个 case 语句评估通过，那么就执行这个case里的语句；</li>
+<li>除 default 外，如果有多个 case 语句评估通过，那么通过伪随机的方式随机选一个；</li>
+<li>如果 default 外的 case 语句都没有通过评估，那么执行 default 里的语句；</li>
+<li>如果没有 default，那么代码块会被阻塞，直到有一个 case 通过评估；否则一直阻塞</li>
+</ol>
+<h2 id="itoa">itoa</h2>
+<p>参考 <a href="https://studygolang.com/articles/22498">https://studygolang.com/articles/22498</a></p>
+<h2 id="slice-切片和数组">slice 切片和数组</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#6272a4">// 创建数组
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> arr <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>}
+
+<span style="color:#6272a4">// 动态数组创建，类似创建数组，但是没有指定固定长度
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> al []<span style="color:#8be9fd">int</span>     <span style="color:#6272a4">//创建slice
+</span><span style="color:#6272a4"></span>sl <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>([]<span style="color:#8be9fd">int</span>,<span style="color:#bd93f9">10</span>)  <span style="color:#6272a4">//创建有10个元素的slice
+</span><span style="color:#6272a4"></span>sl<span style="color:#ff79c6">:=</span>[]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>} <span style="color:#6272a4">//创建有初始化元素的slice
+</span></code></pre></div><p>区别：</p>
+<ul>
+<li>声明数组时，方括号内写明了数组的长度或者&hellip;,声明slice时候，方括号内为空</li>
+<li>作为函数参数时，数组传递的是数组的副本，而slice传递的是指针。</li>
+</ul>
+<h2 id="defer">defer</h2>
+<p>defer 的语句在 return 之后执行</p>
+<ol>
+<li>多个defer的执行顺序为“后进先出”；</li>
+<li>所有函数在执行RET返回指令之前，都会先检查是否存在defer语句，若存在则先逆序调用defer语句进行收尾工作再退出返回；</li>
+<li>匿名返回值是在return执行时被声明，有名返回值则是在函数声明的同时被声明，因此在defer语句中只能访问有名返回值，而不能直接访问匿名返回值；</li>
+<li>return其实应该包含前后两个步骤：第一步是给返回值赋值（若为有名返回值则直接赋值，若为匿名返回值则先声明再赋值）；第二步是调用RET返回指令并传入返回值，而RET则会检查defer是否存在，若存在就先逆序插播defer语句，最后RET携带返回值退出函数；</li>
+</ol>
+<p>‍‍因此 defer、return、返回值三者的执行顺序应该是：return最先给返回值赋值；接着defer开始执行一些收尾工作；最后RET指令携带返回值退出函数。</p>
+<ul>
+<li>后调用的 defer 函数会先执行：
+<ul>
+<li>后调用的 <code>defer</code> 函数会被追加到 Goroutine <code>_defer</code> 链表的最前面；</li>
+<li>运行 <a href="https://draveness.me/golang/tree/runtime._defer"><code>runtime._defer</code></a> 时是从前到后依次执行；</li>
+</ul>
+</li>
+<li>函数的参数会被预先计算；
+<ul>
+<li>调用 <a href="https://draveness.me/golang/tree/runtime.deferproc"><code>runtime.deferproc</code></a> 函数创建新的延迟调用时就会立刻拷贝函数的参数，函数的参数不会等到真正执行时计算；</li>
+</ul>
+</li>
+</ul>
+<h2 id="panic">panic</h2>
+<p><code>panic</code> 能够改变程序的控制流，调用 <code>panic</code> 后会立刻停止执行当前函数的剩余代码，并在当前 Goroutine 中递归执行调用方的 <code>defer</code>；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">test</span>() {
+	<span style="color:#ff79c6">defer</span> fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;in main&#34;</span>)
+	<span style="color:#ff79c6">defer</span> <span style="color:#8be9fd;font-style:italic">func</span>() {
+		<span style="color:#ff79c6">defer</span> fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;in defer func&#34;</span>)
+		<span style="color:#ff79c6">defer</span> <span style="color:#8be9fd;font-style:italic">func</span>() {
+			<span style="color:#8be9fd;font-style:italic">panic</span>(<span style="color:#f1fa8c">&#34;panic again and again&#34;</span>)
+		}()
+		<span style="color:#8be9fd;font-style:italic">panic</span>(<span style="color:#f1fa8c">&#34;panic again&#34;</span>)
+	}()
+
+	<span style="color:#8be9fd;font-style:italic">panic</span>(<span style="color:#f1fa8c">&#34;panic once&#34;</span>)
+}
+
+➜ <span style="color:#ff79c6">go</span> run main.<span style="color:#ff79c6">go</span> test
+in <span style="color:#ff79c6">defer</span> <span style="color:#8be9fd;font-style:italic">func</span>
+in main
+panic: panic once
+        panic: panic again
+        panic: panic again and again
+
+</code></pre></div><p>defer 是后进先出。panic 需要等defer 结束后才会向上传递。出现 panic 时候，会先按照defer的后入先出的顺序执行，最后才会执行panic。</p>
+<h2 id="recover">recover</h2>
+<p>recover 只能在 defer 里会生效</p>
+<ul>
+<li><code>panic</code> 只会触发当前 Goroutine 的 <code>defer</code>；</li>
+<li><code>recover</code> 只有在 <code>defer</code> 中调用才会生效；</li>
+<li><code>panic</code> 允许在 <code>defer</code> 中嵌套多次调用；</li>
+</ul>
+<h2 id="internal-package">internal package</h2>
+<h2 id="type-assertions">Type assertions</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ff79c6">package</span> main
+
+<span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
+
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+	<span style="color:#8be9fd;font-style:italic">var</span> i <span style="color:#8be9fd;font-style:italic">interface</span>{} = <span style="color:#f1fa8c">&#34;hello&#34;</span>
+
+	s <span style="color:#ff79c6">:=</span> i.(<span style="color:#8be9fd">string</span>)
+	fmt.<span style="color:#50fa7b">Println</span>(s)
+
+	s, ok <span style="color:#ff79c6">:=</span> i.(<span style="color:#8be9fd">string</span>)
+	fmt.<span style="color:#50fa7b">Println</span>(s, ok)
+
+	f, ok <span style="color:#ff79c6">:=</span> i.(<span style="color:#8be9fd">float64</span>)
+	fmt.<span style="color:#50fa7b">Println</span>(f, ok)
+
+	f = i.(<span style="color:#8be9fd">float64</span>) <span style="color:#6272a4">// panic
+</span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Println</span>(f)
+}
+
+</code></pre></div><h2 id="channel">channel</h2>
+<p>Go提供了<code>range</code>关键字，将其使用在channel上时，会自动等待channel的动作一直到channel被关闭，如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">ticker <span style="color:#ff79c6">:=</span> time.<span style="color:#50fa7b">NewTicker</span>(time.Minute <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">5</span>)
+<span style="color:#ff79c6">for</span> <span style="color:#ff79c6">range</span> ticker.C {
+	<span style="color:#50fa7b">doSomeThing</span>()
+}
+</code></pre></div><p>如下例子，ch 初始化以后，取出的值默认是 false。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">ctx, cancel <span style="color:#ff79c6">:=</span> context.<span style="color:#50fa7b">WithTimeout</span>(context.<span style="color:#50fa7b">Background</span>(), <span style="color:#bd93f9">3</span><span style="color:#ff79c6">*</span>time.Second)
+<span style="color:#ff79c6">defer</span> <span style="color:#50fa7b">cancel</span>()
+ch <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">chan</span> <span style="color:#8be9fd">bool</span>)
+<span style="color:#ff79c6">go</span> <span style="color:#8be9fd;font-style:italic">func</span>() {
+  <span style="color:#ff79c6">defer</span> <span style="color:#8be9fd;font-style:italic">close</span>(ch)
+  <span style="color:#6272a4">//具体的任务，这里模拟做的任务需要1秒完成
+</span><span style="color:#6272a4"></span>  time.<span style="color:#50fa7b">Sleep</span>(time.Second <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">1</span>)
+}()
+<span style="color:#ff79c6">select</span> {
+  <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">&lt;-</span> ch:
+  fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;ch bool&#34;</span>, <span style="color:#ff79c6">&lt;-</span> ch)
+  <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">&lt;-</span> ctx.<span style="color:#50fa7b">Done</span>():
+  fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;ctx done&#34;</span>)
+}
+<span style="color:#6272a4">// output:
+</span><span style="color:#6272a4">// ch bool false
+</span></code></pre></div><h3 id="带缓冲区和不带缓冲区的区">带缓冲区和不带缓冲区的区</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">c1 <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">chan</span> <span style="color:#8be9fd">int</span>)  <span style="color:#6272a4">// 不带缓冲区
+</span><span style="color:#6272a4"></span>c2 <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">chan</span> <span style="color:#8be9fd">int</span>, <span style="color:#bd93f9">100</span>)  <span style="color:#6272a4">// 带缓冲区
+</span></code></pre></div><ul>
+<li><strong>非缓冲</strong> <code>channel</code>，<code>channel</code> 发送和接收动作是同时发生的
+<ul>
+<li>例如 <code>ch := make(chan int)</code> ，如果没 <code>goroutine</code> 读取接收者<code>&lt;-ch</code> ，那么发送者<code>ch&lt;-</code> 就会一直阻塞</li>
+</ul>
+</li>
+<li><strong>缓冲</strong> <code>channel</code> 类似一个队列，只有队列满了才可能发送阻塞</li>
+</ul>
+<p>一个管道同时仅允许被一个协程读写。</p>
+<h2 id="特殊注释">特殊注释</h2>
+<h3 id="golinkname">go:linkname</h3>
+<p>//go:linkname 注释标签引导编译器在编译时将当前私有函数链接到指定的目标函数，也可以作用到变量上面</p>
+<p>举例:</p>
+<p>time.Sleep() 声明在 time 包，但是实现在 runtime 包的 runtime.timeSleep()</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ff79c6">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> time<span style="color:#ff79c6">/</span>sleep.<span style="color:#ff79c6">go</span> <span style="color:#ff79c6">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+<span style="color:#ff79c6">package</span> time
+
+<span style="color:#6272a4">// Sleep pauses the current goroutine for at least the duration d.
+</span><span style="color:#6272a4">// A negative or zero duration causes Sleep to return immediately.
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">Sleep</span>(d Duration)
+
+<span style="color:#ff79c6">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> runtime<span style="color:#ff79c6">/</span>time.<span style="color:#ff79c6">go</span> <span style="color:#ff79c6">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>&lt;
+
+<span style="color:#6272a4">// timeSleep puts the current goroutine to sleep for at least ns nanoseconds.
+</span><span style="color:#6272a4">//go:linkname timeSleep time.Sleep
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">timeSleep</span>(ns <span style="color:#8be9fd">int64</span>) {
+	<span style="color:#ff79c6">if</span> ns <span style="color:#ff79c6">&lt;=</span> <span style="color:#bd93f9">0</span> {
+		<span style="color:#ff79c6">return</span>
+	}
+
+	gp <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">getg</span>()
+	t <span style="color:#ff79c6">:=</span> gp.timer
+	<span style="color:#ff79c6">if</span> t <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
+		t = <span style="color:#8be9fd;font-style:italic">new</span>(timer)
+		gp.timer = t
+	}
+	t.f = goroutineReady
+	t.arg = gp
+	t.nextwhen = <span style="color:#50fa7b">nanotime</span>() <span style="color:#ff79c6">+</span> ns
+	<span style="color:#50fa7b">gopark</span>(resetForSleep, unsafe.<span style="color:#50fa7b">Pointer</span>(t), waitReasonSleep, traceEvGoSleep, <span style="color:#bd93f9">1</span>)
+}
+</code></pre></div><p>注意：</p>
+<p>这种方式大部分只在 go 源码中会用到，如果要自己写的话，需要引入 unsafe 包，同时因为<code>go build</code>默认加会加上<code>-complete</code>参数，这个参数检查到没有方法体，在同级文件夹中还需要增加一个空的<code>.s</code>文件才能绕过这个限制</p>
+<h3 id="gonoescape">go:noescape</h3>
+<p>该指令指定下一个有声明但没有主体（意味着实现有可能不是 Go）的函数，不允许编译器对其做逃逸分析。</p>
+<p>一般情况下，该指令用于内存分配优化。因为编译器默认会进行逃逸分析，会通过规则判定一个变量是分配到堆上还是栈上。但凡事有意外，一些函数虽然逃逸分析其是存放到堆上。但是对于我们来说，它是特别的。我们就可以使用 <code>go:noescape</code> 指令强制要求编译器将其分配到函数栈上。</p>
+<h2 id="named-return-value">named return value</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">f</span>() (i <span style="color:#8be9fd">int</span>, s <span style="color:#8be9fd">string</span>) {
+    i = <span style="color:#bd93f9">17</span>
+    s = <span style="color:#f1fa8c">&#34;abc&#34;</span>
+    <span style="color:#ff79c6">return</span> <span style="color:#6272a4">// same as return i, s
+</span><span style="color:#6272a4"></span>}
+</code></pre></div><p><a href="https://tour.golang.org/basics/7">https://tour.golang.org/basics/7</a></p>
+<p><a href="https://yourbasic.org/golang/named-return-values-parameters/">https://yourbasic.org/golang/named-return-values-parameters/</a></p>
+<h2 id="数学计算">数学计算</h2>
+<h2 id="位移计算">位移计算</h2>
+<h2 id="cgo">CGo</h2>
+<p>举例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ff79c6">package</span> rand
+
+<span style="color:#6272a4">/*
+</span><span style="color:#6272a4">#include &lt;stdlib.h&gt;
+</span><span style="color:#6272a4">*/</span>
+<span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;C&#34;</span>
+
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">Random</span>() <span style="color:#8be9fd">int</span> {
+    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">int</span>(C.<span style="color:#50fa7b">random</span>())
+}
+
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">Seed</span>(i <span style="color:#8be9fd">int</span>) {
+    C.<span style="color:#50fa7b">srandom</span>(C.<span style="color:#8be9fd;font-style:italic">uint</span>(i))
+}
+</code></pre></div></article>
+ 
+      <div>
+    <span style="float:left">
+    
+        
+    
+    </span>
+    <span style="float:right">
+    
+        
+    
+    </span>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+              delimiters: [
+                  {left: "$$", right: "$$", display: true},
+                  {left: "$", right: "$", display: false},
+                  {left: "\\(", right: "\\)", display: false},
+                  {left: "\\[", right: "\\]", display: true}
+              ]
+          });
+    });
+</script>
+
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
+document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yindongliang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#for-循环">for 循环</a></li>
+        <li><a href="#进制">进制</a>
+          <ul>
+            <li><a href="#十六进制">十六进制</a></li>
+            <li><a href="#八进制">八进制</a></li>
+          </ul>
+        </li>
+        <li><a href="#单引号">单引号</a></li>
+        <li><a href="#传值和传引用">传值和传引用</a></li>
+        <li><a href="#select">select</a></li>
+        <li><a href="#itoa">itoa</a></li>
+        <li><a href="#slice-切片和数组">slice 切片和数组</a></li>
+        <li><a href="#defer">defer</a></li>
+        <li><a href="#panic">panic</a></li>
+        <li><a href="#recover">recover</a></li>
+        <li><a href="#internal-package">internal package</a></li>
+        <li><a href="#type-assertions">Type assertions</a></li>
+        <li><a href="#channel">channel</a>
+          <ul>
+            <li><a href="#带缓冲区和不带缓冲区的区">带缓冲区和不带缓冲区的区</a></li>
+          </ul>
+        </li>
+        <li><a href="#特殊注释">特殊注释</a>
+          <ul>
+            <li><a href="#golinkname">go:linkname</a></li>
+            <li><a href="#gonoescape">go:noescape</a></li>
+          </ul>
+        </li>
+        <li><a href="#named-return-value">named return value</a></li>
+        <li><a href="#数学计算">数学计算</a></li>
+        <li><a href="#位移计算">位移计算</a></li>
+        <li><a href="#cgo">CGo</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

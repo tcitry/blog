@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yindongliang</title>
+    <link>https://yindongliang.com/docs/Database/</link>
+    <description>Recent content on Yindongliang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="https://yindongliang.com/docs/Database/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Database/MongoDB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/MongoDB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Database/MySQL/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/MySQL/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Database/PostgreSQL/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/PostgreSQL/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Database/Redis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/Redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>https://yindongliang.com/docs/Database/SQL/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/SQL/</guid>
+      <description>练习 select 最后不加 s 的话 SQL 会报错 select count(*) from (select count(user_id) from virtual_user_membership where expire_time &amp;gt; 1604976736 and category_code=&amp;#39;FB0080&amp;#39; group by user_id) s; having group by pg Json 查询 order_activity 是一个长度为 1 的数组 select ((raw-&amp;gt;&amp;gt;&amp;#39;order_activity&amp;#39;)::json-&amp;gt;&amp;gt;0)::json-&amp;gt;&amp;gt;&amp;#39;promot_title&amp;#39; from chronosphere.sale_orderraw where order_id in (select id from chronosphere.einstein_order where sn=&amp;#39;xxx&amp;#39;);</description>
+    </item>
+    
+    <item>
+      <title>基础概念</title>
+      <link>https://yindongliang.com/docs/Database/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</guid>
+      <description>锁 乐观锁 悲观锁</description>
+    </item>
+    
+  </channel>
+</rss>

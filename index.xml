@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yindongliang</title>
+    <link>https://yindongliang.com/</link>
+    <description>Recent content on Yindongliang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://yindongliang.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>看了下 Protobuf</title>
+      <link>https://yindongliang.com/posts/Hello-Protobuf/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/posts/Hello-Protobuf/</guid>
+      <description>RPC RPC，全称 Remote Procedure Call，中文叫远程过程调用。 go 语言基于标准库实现了一套自己的 RPC 调用规则：方法只能有两个可序列化的参数，其中第二个参数是指</description>
+    </item>
+    
+    <item>
+      <title>乒乓理财，了解一下？</title>
+      <link>https://yindongliang.com/posts/pingpang-financing/</link>
+      <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/posts/pingpang-financing/</guid>
+      <description>谁需要看 如果你有100 万要理财，这个不适合你。如果你只有 1 万？那向你介绍一下我总结的理财方案~ 认识乒乓球拍 关于球拍的分类，我从各个角度出发整</description>
+    </item>
+    
+    <item>
+      <title>使用 typora 来编辑你的 hugo 博客</title>
+      <link>https://yindongliang.com/posts/use-typora-write-hugo-blog/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/posts/use-typora-write-hugo-blog/</guid>
+      <description>最近 typroa 用的比较多，然后又想着继续维护在 github page 的博客，觉得把 typora 编辑完的东西再复制到博客项目里很麻烦，于是开始了一番折腾。 目标是啥 在 typora 写的笔记放在</description>
+    </item>
+    
+    <item>
+      <title>浅谈 Django-REST-Framework 的设计与源码</title>
+      <link>https://yindongliang.com/posts/talk-about-django-rest-framework/</link>
+      <pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/posts/talk-about-django-rest-framework/</guid>
+      <description>最近又重新接触 DRF，翻看文档发现，当时很难理解的东西，如今一看就懂了，顺带看了源码，也比较容易理解，至少比 Django 的源码简单不少。下面开始从 DRF 的</description>
+    </item>
+    
+    <item>
+      <title>Vagrant 虚拟机 Ubuntu16.04 安装 MariaDB</title>
+      <link>https://yindongliang.com/posts/ubuntu-MariaDB/</link>
+      <pubDate>Mon, 10 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/posts/ubuntu-MariaDB/</guid>
+      <description>由于宿主机安装了 MySQL，为了避免安装 MariaDB 造成 MySQL 无法使用，所以在 Vagrant 中安装 Mariadb。 更换网易 apt-get 源 /etc/apt/sources.list 读取源软件列表 sudo apt update 更新软件版本 sudo apt upgrade</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 下部署 Django 应用</title>
+      <link>https://yindongliang.com/posts/ubuntu-deploy-django/</link>
+      <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/posts/ubuntu-deploy-django/</guid>
+      <description>做了一个Django小应用，主要内容是一个论坛，经过好几天的研究，也可以在服务器端运行了，以下所有代码中的操作都需要在命令行运行。 安装MyS</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/about/</guid>
+      <description>关于博客 本博客使用基于 Hugo 的 hugo-book 主题 部署在 Github Page。 关于我 曾经使用 Python，现在使用 Go 的后端程序员，正在学习前端知识，现居北京。 业余喜欢打</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/archives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/archives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C%E8%A1%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A0%86/</guid>
+      <description>堆（优先队列） 堆（heap）分为最大堆（大根堆）和最小堆（小根堆）。 特点 （1）在最大堆中，父节点的值比每一个子节点的值都要大。在最小堆中，父</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E7%BB%84/</guid>
+      <description>数组常被用来当做栈和队列的容器。 另外还有一些算法可以通过数组实现，比如堆。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</guid>
+      <description>栈 先进后出，后进先出 队列 先进先出，后进后出 （双端队列） 数组</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/</guid>
+      <description>基本概念 父节点 子节点 叶子节点 高度 深度 树的高度：节点到叶子节点的最大值就是其高度。 树的深度：高度和深度是相反的，高度是从下往上数，深度是从上往</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E6%96%B9%E6%B3%95%E6%8A%80%E5%B7%A7/%E9%80%92%E5%BD%92/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E6%96%B9%E6%B3%95%E6%8A%80%E5%B7%A7/%E9%80%92%E5%BD%92/</guid>
+      <description>反转字符串</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/BFS/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/BFS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/DFS/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/DFS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</guid>
+      <description>二分查找利用已经排好序的数组，每次查找可以将查找范围减半，查找范围内只剩一个数据时查找结束。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description>必备因素：递归</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      <description>冒泡排序 选择排序 插入排序 堆排序 归并排序 快速排序 希尔排序 桶排序</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</guid>
+      <description>例题 3. 无重复字符的最长子串</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Algorithms/%E7%AE%97%E6%B3%95/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Apple/iOS/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Apple/iOS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Apple/Objective-C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Apple/Objective-C/</guid>
+      <description>数据类型 数据结构 程序控制 switch select 函数调用 “面向对象” 进阶语法 条件编译 #if defined(A) #elif #ifndef #else #endif 成员变量名命名规范：_开头 局部变量不用，易于区分 类方法+开头（不</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Apple/Swift/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Apple/Swift/</guid>
+      <description>参考 中文版 Apple 官方 Swift 教程《The Swift Programming Language》 https://swiftgg.gitbook.io/swift/ 数据类型 类型转换 数据结构 程序控制 for/break/continue for&amp;hellip;in&amp;hellip; let names = [&amp;#34;Anna&amp;#34;, &amp;#34;Alex&amp;#34;, &amp;#34;Brian&amp;#34;, &amp;#34;Jack&amp;#34;] for name in names { print(&amp;#34;Hello, \(name)!&amp;#34;) } switch select 函数调用 “面向对</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Database/MongoDB/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/MongoDB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Database/MySQL/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/MySQL/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Database/PostgreSQL/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/PostgreSQL/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Database/Redis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/Redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Docker/Compose/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Docker/Compose/</guid>
+      <description>命令 docker-compose run up -d --build</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Docker/Dockerfile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Docker/Dockerfile/</guid>
+      <description>各语言打包举例 Golang FROMgolang:1.12.17 AS build-env ADD . /go/src/gitlab.com/tcitry/gogogo WORKDIR/go/src/gitlab.com/tcitry/gogogo RUN go build -o /build/gogogo main.go FROMgolang:1.12.17 COPY --from=build-env /build/gogogo /data/src/ COPY conf/test.toml /data/src/ COPY entrypoint.sh /data/src/ EXPOSE5555 ENTRYPOINT [&amp;#34;/data/src/entrypoint.sh&amp;#34;] #!/bin/sh mv test.toml config.toml if [ -z $COMMAND ]; then if [ ! -z $1 ] ; then COMMAND=$@ fi exec /data/src/gogogo $COMMAND else exec /data/src/gogogo $COMMAND fi Python FROMpython:3.6 WORKDIR/data/src COPY ./requirements.txt /data/src/requirements.txt RUN</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Docker/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Docker/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/CSS/Sass/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/CSS/Sass/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/CSS/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/CSS/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/Deno/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/Deno/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>资源参考 Deno中文手册 Deno手册 命令行 --allow-read：打开读权限，可以指定可读的目录，比如--allow-read=/temp</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/Electron/%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/Electron/%E5%9F%BA%E7%A1%80/</guid>
+      <description>https://www.electronjs.org/</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/JavaScript/BOM/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/JavaScript/BOM/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/JavaScript/DOM/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/JavaScript/DOM/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/JavaScript/%E4%B8%89%E6%96%B9%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/JavaScript/%E4%B8%89%E6%96%B9%E5%BA%93/</guid>
+      <description>工具库 lodash</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/JavaScript/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/JavaScript/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <description>概念 DOM、BOM、Window、Document DOM 是操作文档的 API，Document 是其一个对象。 BOM 是操作浏览器的 API，Window 是</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/Nodejs/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/Nodejs/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>npx npx使用教程 Node 自带 npm 模块，所以可以直接使用 npx 命令。 npm 版本管理 ~: 当安装依赖时获取到有新版本时，安装到 x.y.z 中 z 的最新的版本。即保持主版本号、次</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/FE/TypeScript/%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/TypeScript/%E8%AF%AD%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>Golang 常用命令 官方文档 https://golang.org/cmd/go/ run go run main.go -mod选项，go help modules查看详细，-mod 在其他部分命令中也可指定，具体是 build, clean, get, install, list, run, and test vendor mod readonly test 测试</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E5%B7%A5%E5%85%B7%E5%8C%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E5%B7%A5%E5%85%B7%E5%8C%85/</guid>
+      <description>参考 Go语言不完全工具列表 Json 序列化工具 Golang 的 json 包 Easyjson https://github.com/mailru/easyjson gomock 根据接口生成 mock 文件 go-sqlmock SQL 生成工具 gendry</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E6%A0%87%E5%87%86%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E6%A0%87%E5%87%86%E5%BA%93/</guid>
+      <description>Buildin 文档 https://golang.org/pkg/builtin uintptr 足够大、可以存放任何指针地址的类型。常用来将指针转换后进行寻址计算。 uintptr is an integer type that is large enough to hold the bit pattern of any pointer. func Offsetof(x ArbitraryType) uintptr func Sizeof(x ArbitraryType) uintptr func Alignof(x ArbitraryType) uintptr 错误</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
+      <description>环境变量 Example go env GO111MODULE=&amp;#34;auto&amp;#34; GOARCH=&amp;#34;amd64&amp;#34; GOBIN=&amp;#34;&amp;#34; GOCACHE=&amp;#34;/Users/yindongliang/Library/Caches/go-build&amp;#34; GOENV=&amp;#34;/Users/yindongliang/Library/Application Support/go/env&amp;#34; GOEXE=&amp;#34;&amp;#34; GOFLAGS=&amp;#34;&amp;#34; GOHOSTARCH=&amp;#34;amd64&amp;#34; GOHOSTOS=&amp;#34;darwin&amp;#34; GOINSECURE=&amp;#34;&amp;#34; GONOPROXY=&amp;#34;*.luojilab.com&amp;#34; GONOSUMDB=&amp;#34;*.luojilab.com&amp;#34; GOOS=&amp;#34;darwin&amp;#34; GOPATH=&amp;#34;/Users/yindongliang/go/go1.14.1/bin&amp;#34; GOPRIVATE=&amp;#34;*.luojilab.com&amp;#34; GOPROXY=&amp;#34;https://goproxy.cn&amp;#34; GOROOT=&amp;#34;/Users/yindongliang/go/go1.14.1&amp;#34; GOSUMDB=&amp;#34;sum.golang.org&amp;#34; GOTMPDIR=&amp;#34;&amp;#34; GOTOOLDIR=&amp;#34;/Users/yindongliang/go/go1.14.1/pkg/tool/darwin_amd64&amp;#34; GCCGO=&amp;#34;gccgo&amp;#34; AR=&amp;#34;ar&amp;#34; CC=&amp;#34;clang&amp;#34; CXX=&amp;#34;clang++&amp;#34; CGO_ENABLED=&amp;#34;1&amp;#34; GOMOD=&amp;#34;/Users/yindongliang/github/golang/ants/go.mod&amp;#34; CGO_CFLAGS=&amp;#34;-g -O2&amp;#34; CGO_CPPFLAGS=&amp;#34;&amp;#34; CGO_CXXFLAGS=&amp;#34;-g -O2&amp;#34; CGO_FFLAGS=&amp;#34;-g -O2&amp;#34; CGO_LDFLAGS=&amp;#34;-g -O2&amp;#34; PKG_CONFIG=&amp;#34;pkg-config&amp;#34; GOGCCFLAGS=&amp;#34;-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/tg/wm0sdf5x16xddmy4r63cs7fw0000gn/T/go-build097402637=/tmp/go-build -gno-record-gcc-switches -fno-common&amp;#34; GO111MODULE 文档 https://github.com/golang/go/wiki/Modules vgo 就是后来的 go module GO111MODULE=off 无模块支</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E8%AF%AD%E6%B3%95/</guid>
+      <description>数据类型 类型转换 数据结构 程序控制 for/break/continue for 循环 go 中对字符串 for 循环得到的是索引和 int32 类型的数字 进制 十六进制 0x 开头为十六进制 八进制 0 开头为八进制 switch/case/default fallthrough select/case/default “</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83/</guid>
+      <description>语言规范 控制 Goroutine 的生命周期 使用 gofmt Context 一般作为第一个参数传参 copy struct 时需注意 slice 的拷贝 Don&amp;rsquo;t Panic pkg 里面的包最好有 example 传值还是传指针？ Error 未处理 Share memory by communicating; don&amp;rsquo;t communicate by sharing memory. 在</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <description>面试题解析 https://toutiao.io/posts/qepeli/preview string 和 []byte 互转 string 不能直接和byte数组转换 string可以和byte的切片转换 1,string 转为[]byte var str string = &amp;ldquo;test&amp;rdquo; var data []byte = []byte(str) 2,byte转为</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Java/SpringBoot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Java/SpringBoot/</guid>
+      <description>spring page</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Java/%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Java/%E8%AF%AD%E6%B3%95/</guid>
+      <description>Java</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Kafka/Kafka/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Kafka/Kafka/</guid>
+      <description>概念 group group*.*id是一个字符串，唯一标识一个consumer group. consumer group下订阅的topic下的每个分区只能分配给某个group下的</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Kubernetes/kubectl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Kubernetes/kubectl/</guid>
+      <description>commands </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Linux/Git/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Linux/Git/</guid>
+      <description>merge rebase submodule git submodule foreach git pull gitconfig 文件</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Linux/Shell-%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Linux/Shell-%E8%84%9A%E6%9C%AC/</guid>
+      <description>Set</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Linux/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Linux/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>练习 统计 Python 项目中行数最多的N个文件 find . -path ./venv -prune -o -name &amp;lsquo;*.py&amp;rsquo; |xargs wc -l|sort -r |tail -n +2|head -n 2|tail -n +5</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/OS/CPU/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/OS/CPU/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Python/Django/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Python/Django/</guid>
+      <description>Django</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Python/Numpy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Python/Numpy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Python/Pandas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Python/Pandas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Python/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Python/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Python/%E5%B7%A5%E5%85%B7%E5%8C%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Python/%E5%B7%A5%E5%85%B7%E5%8C%85/</guid>
+      <description>密码学</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Python/%E6%A0%87%E5%87%86%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Python/%E6%A0%87%E5%87%86%E5%BA%93/</guid>
+      <description>Socket </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Python/%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Python/%E8%AF%AD%E6%B3%95/</guid>
+      <description>魔法方法 async</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Python/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Python/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Rust/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Rust/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>Cargo </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Rust/%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Rust/%E8%AF%AD%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/TCPIP/TCPIP/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/TCPIP/TCPIP/</guid>
+      <description>无向连接 有向连接</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
+      <description>封装 继承 多态</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/projects/</guid>
+      <description>django-api-permission 基于 Django Middleware 通过对 URL 进行正则匹配实现的一个 API 权限管理中间件。
+django-mirage-field 使用 AES 对称加密算法，基于 Django Model 开发的脱敏工具，它实现了在保存数据时加密、读取数据时解密的功能，同时支持使用 Django ORM 进行查询。
+drforum 基于 django-rest-framework 实现的论坛后端 API demo。
+jeecf-cli 基于 Python 的 click 库为 Jeecf 开发的命令行工具，配合 jeecf-server 实现在本地生成指定的代码模板。</description>
+    </item>
+    
+    <item>
+      <title>AppleScript</title>
+      <link>https://yindongliang.com/docs/Apple/AppleScript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Apple/AppleScript/</guid>
+      <description>1</description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>https://yindongliang.com/docs/FE/HTML/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/HTML/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>常用标签 input 属性: name 提交时发送给后端的 key 值，value为input 的 value</description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>https://yindongliang.com/docs/Database/SQL/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/SQL/</guid>
+      <description>练习 select 最后不加 s 的话 SQL 会报错 select count(*) from (select count(user_id) from virtual_user_membership where expire_time &amp;gt; 1604976736 and category_code=&amp;#39;FB0080&amp;#39; group by user_id) s; having group by pg Json 查询 order_activity 是一个长度为 1 的数组 select ((raw-&amp;gt;&amp;gt;&amp;#39;order_activity&amp;#39;)::json-&amp;gt;&amp;gt;0)::json-&amp;gt;&amp;gt;&amp;#39;promot_title&amp;#39; from chronosphere.sale_orderraw where order_id in (select id from chronosphere.einstein_order where sn=&amp;#39;xxx&amp;#39;);</description>
+    </item>
+    
+    <item>
+      <title>SwiftUI</title>
+      <link>https://yindongliang.com/docs/Apple/SwiftUI/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Apple/SwiftUI/</guid>
+      <description>参考 https://github.com/Jinxiansen/SwiftUI Scene View Window VStack</description>
+    </item>
+    
+    <item>
+      <title>基本概念</title>
+      <link>https://yindongliang.com/docs/FE/Nodejs/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/FE/Nodejs/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</guid>
+      <description>Node.js 中文网 http://nodejs.cn/ Node.js 是什么 基于事件驱动，非阻塞I/O，</description>
+    </item>
+    
+    <item>
+      <title>基础概念</title>
+      <link>https://yindongliang.com/docs/Database/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Database/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</guid>
+      <description>锁 乐观锁 悲观锁</description>
+    </item>
+    
+  </channel>
+</rss>

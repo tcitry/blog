@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macOS/iOS on Yindongliang</title>
+    <link>https://yindongliang.com/docs/Apple/</link>
+    <description>Recent content in macOS/iOS on Yindongliang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="https://yindongliang.com/docs/Apple/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Apple/iOS/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Apple/iOS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Apple/Objective-C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Apple/Objective-C/</guid>
+      <description>数据类型 数据结构 程序控制 switch select 函数调用 “面向对象” 进阶语法 条件编译 #if defined(A) #elif #ifndef #else #endif 成员变量名命名规范：_开头 局部变量不用，易于区分 类方法+开头（不</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yindongliang.com/docs/Apple/Swift/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Apple/Swift/</guid>
+      <description>参考 中文版 Apple 官方 Swift 教程《The Swift Programming Language》 https://swiftgg.gitbook.io/swift/ 数据类型 类型转换 数据结构 程序控制 for/break/continue for&amp;hellip;in&amp;hellip; let names = [&amp;#34;Anna&amp;#34;, &amp;#34;Alex&amp;#34;, &amp;#34;Brian&amp;#34;, &amp;#34;Jack&amp;#34;] for name in names { print(&amp;#34;Hello, \(name)!&amp;#34;) } switch select 函数调用 “面向对</description>
+    </item>
+    
+    <item>
+      <title>AppleScript</title>
+      <link>https://yindongliang.com/docs/Apple/AppleScript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Apple/AppleScript/</guid>
+      <description>1</description>
+    </item>
+    
+    <item>
+      <title>SwiftUI</title>
+      <link>https://yindongliang.com/docs/Apple/SwiftUI/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yindongliang.com/docs/Apple/SwiftUI/</guid>
+      <description>参考 https://github.com/Jinxiansen/SwiftUI Scene View Window VStack</description>
+    </item>
+    
+  </channel>
+</rss>

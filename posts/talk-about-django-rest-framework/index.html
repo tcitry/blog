@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="最近又重新接触 DRF，翻看文档发现，当时很难理解的东西，如今一看就懂了，顺带看了源码，也比较容易理解，至少比 Django 的源码简单不少。下面开始从 DRF 的">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="浅谈 Django-REST-Framework 的设计与源码" />
+<meta property="og:description" content="最近又重新接触 DRF，翻看文档发现，当时很难理解的东西，如今一看就懂了，顺带看了源码，也比较容易理解，至少比 Django 的源码简单不少。下面开始从 DRF 的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yindongliang.com/posts/talk-about-django-rest-framework/" />
+<meta property="article:published_time" content="2017-04-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-04-20T00:00:00+00:00" />
+<title>浅谈 Django-REST-Framework 的设计与源码 | Yindongliang</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.d92e572ecaecb8ab81df83c495fc50c9330006fab2d0600e9c3ab1d52656c8ab.css" integrity="sha256-2S5XLsrsuKuB34PElfxQyTMABvqy0GAOnDqx1SZWyKs=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.189e20487a027271e4499cb8ae287b30e4ec57322ce20790cd6575e7ae46c682.js" integrity="sha256-GJ4gSHoCcnHkSZy4rih7MOTsVzIs4geQzWV1565GxoI=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-50554094-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/logo.jpeg" alt="Logo" /><span>Yindongliang</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+<ul>
+    <li><a href="/archives">Archives</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://github.com/tcitry" target="_blank">🚀 Github</a></li>
+    <li><a href="/posts/index.xml" target="_blank">📚 RSS</a></li>
+</ul>
+<hr>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ab6241a9c9348727e1ed30d9d7253a0e" class="toggle"  />
+    <label for="section-ab6241a9c9348727e1ed30d9d7253a0e" class="flex justify-between">
+      <a role="button" class="">Golang</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="">命令行</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E5%B7%A5%E5%85%B7%E5%8C%85/" class="">工具包</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E6%A0%87%E5%87%86%E5%BA%93/" class="">标准库</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="">环境变量</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E8%AF%AD%E6%B3%95/" class="">语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83/" class="">语言规范</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="">面试题</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>浅谈 Django-REST-Framework 的设计与源码</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#apiview">APIView</a>
+          <ul>
+            <li><a href="#mixin">Mixin</a></li>
+          </ul>
+        </li>
+        <li><a href="#generic-views">Generic views</a></li>
+        <li><a href="#viewsets">Viewsets</a></li>
+        <li><a href="#serializers">Serializers</a></li>
+        <li><a href="#其它">其它</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/talk-about-django-rest-framework/">浅谈 Django-REST-Framework 的设计与源码</a>
+  </h1>
+  
+  <h5>Apr 20, 2017</h5>
+
+
+
+  
+  <div>
+    
+      <a href="/categories/2017/">2017</a>
+  </div>
+  
+
+  
+  <div>
+    
+      <a href="/tags/Django/">Django</a>, 
+      <a href="/tags/Python/">Python</a>
+  </div>
+  
+
+
+
+<p>最近又重新接触 DRF，翻看文档发现，当时很难理解的东西，如今一看就懂了，顺带看了源码，也比较容易理解，至少比 Django 的源码简单不少。下面开始从 DRF 的设计和源码两个方面，结合自己的看法，谈谈DRF。</p>
+<h2 id="apiview">APIView</h2>
+<p>APIView 是 DRF 概念体系中最基本类视图，它基于 Django 的 View，同时又实现了一层对自己创造的概念的封装，比如<code>permission_classes</code>，<code>render_classes</code>，<code>authentication_classes</code>等，相当于请求过来后又进入一层，过滤（验证、初始化）完要走的这些classes，才能执行到我们自己实现的 view。</p>
+<h3 id="mixin">Mixin</h3>
+<p>在介绍 Generic view 前先说一下 mixin。说白了，官方给的案例里面的 mixin，就是对 model 的object增删改查的原子操作。比如<code>RetrieveModelMixin</code>，通过 get_object 先获取到对象，然后通过 serializer 拿到序列化数据。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">RetrieveModelMixin</span>(<span style="color:#8be9fd;font-style:italic">object</span>):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span><span style="color:#f1fa8c">    Retrieve a model instance.
+</span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">retrieve</span>(self, request, <span style="color:#ff79c6">*</span>args, <span style="color:#ff79c6">**</span>kwargs):
+        instance <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>get_object()
+        serializer <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>get_serializer(instance)
+        <span style="color:#ff79c6">return</span> Response(serializer<span style="color:#ff79c6">.</span>data)
+</code></pre></div><p>延伸开来，Mixin 是一个非常重要的概念，因为它是模块化拆分后最关键的原子逻辑实现，是每一个单独的块。试想下，我们可以通过这些小块拼接成不同的功能，比如用户注册功能，使用者有可能在手机注册，有可能在web注册，在 Django 后端中可能需要提供两套 view 层接口，甚至还有渲染 template 的实现，但是真正的逻辑处理上，可以只调用一个<code>RegistMixin</code>的东西，从而提高代码复用，降低维护成本。</p>
+<p>甚至，Mixin 可以重写同时继承的 GenericAPIView 中的实现，比如 request 参数处理，Response 数据处理（视频、文件格式之类），get_queryset，get_serializer 等等有通用需求，并且会在多个地方复用的定制，比如根据传入参数指定需要的 serializer 从而在 mixin 中重写 get_serializer 方法的实现逻辑。总之，原本会在 View 中发生的一切，都可以通过 Mixin 封装起来，或重写、或新的逻辑实现。</p>
+<h2 id="generic-views">Generic views</h2>
+<p>典型的Generic view就是这样的，本质上是类视图，它由一些 Mixin 组成，这里的<code>ListModelMixin</code>实现了list()方法，并同时继承自<code>GenericAPIView</code>，同时自己实现了由 get() 到 list() 的转发。复杂的是，<code>GenericAPIView</code> 实现，以及他的执行过程，和后期对里面函数的重写、定制。所以抽时间多研究下这里很值得，以后也会节省大量时间。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ListAPIView</span>(mixins<span style="color:#ff79c6">.</span>ListModelMixin,
+                  GenericAPIView):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span><span style="color:#f1fa8c">    Concrete view for listing a queryset.
+</span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">get</span>(self, request, <span style="color:#ff79c6">*</span>args, <span style="color:#ff79c6">**</span>kwargs):
+        <span style="color:#ff79c6">return</span> self<span style="color:#ff79c6">.</span>list(request, <span style="color:#ff79c6">*</span>args, <span style="color:#ff79c6">**</span>kwargs)
+</code></pre></div><p>如果要实现的逻辑不是很复杂的话，直接在view中继承一个<code>[List[Create[Update]]]APIView</code>，然后指定下<code>serializer_class</code>，<code>permission_class</code>，<code>queryset</code>等就可以了。对DRF熟悉的话相信这种方式实现功能会很快。</p>
+<h2 id="viewsets">Viewsets</h2>
+<p>先看代码，ViewSet 继承了<code>ViewSetMixin</code>和<code>APIView</code>，<code>ViewSetMix</code>是<code>APIView</code>中<code>as_view</code>的重写，实现请求到 action 的转发，虽然 Django 自带的 View 也实现了 as_view，但只是传递初始化参数，确实没有这个请求转发到 action 的实现，APIView里面也没有。这里也可以学习到：Python的多重继承中，子类形参的先后顺序，影响到执行的是哪个类中的<code>as_view</code>方法，相当于<code>ViewSetMixin</code>又继承了<code>APIView</code>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ViewSet</span>(ViewSetMixin, views<span style="color:#ff79c6">.</span>APIView):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span><span style="color:#f1fa8c">    The base ViewSet class does not provide any actions by default.
+</span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+    <span style="color:#ff79c6">pass</span>
+</code></pre></div><p>viewsets 和 APIView 不一样的地方在于，它要表达的更多的是一个方法视图的集合，他的内部是已经实现了的<code>list()</code>，<code>retrieve()</code>，<code>delete()</code>，<code>update()</code>的实现，如果实现用 DRF 的 DefaultRouter。router和as_view都可以实现GET请求&ndash;&gt;list()的转发，值得一提的还有<code>detail_route</code>和<code>list_route</code>(最新版本推荐使用<code>action</code>)，他们需要在urls中配置 router 的前提下使用，在 Router 类的<code>get_url</code>里面的<code>get_routers</code>执行，然后获得所有的路由列表，再进行 action 转发。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># account/views.py</span>
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">AccountViewSet</span>(viewsets<span style="color:#ff79c6">.</span>ModelViewSet):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span><span style="color:#f1fa8c">    对Account的操作的集合，本质上是基于方法视图的封装
+</span><span style="color:#f1fa8c">    &#34;&#34;&#34;</span>
+    queryset <span style="color:#ff79c6">=</span> User<span style="color:#ff79c6">.</span>objects<span style="color:#ff79c6">.</span>all()
+    serializer_class <span style="color:#ff79c6">=</span> UserSerializer
+
+    @detail_route(methods<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;post&#39;</span>], url_path<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;change-password&#39;</span>)
+    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">set_password</span>(self, request, <span style="color:#ff79c6">*</span>args, <span style="color:#ff79c6">**</span>kwargs):
+        <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span><span style="color:#f1fa8c">        修改用户的密码
+</span><span style="color:#f1fa8c">        &#34;&#34;&#34;</span>
+        <span style="color:#ff79c6">return</span> Response(status<span style="color:#ff79c6">=</span>status<span style="color:#ff79c6">.</span>HTTP_200_OK)
+
+    @detail_route(methods<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;post&#39;</span>], url_path<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;change-username&#39;</span>)
+    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">change_username</span>(self, request, <span style="color:#ff79c6">*</span>args, <span style="color:#ff79c6">**</span>kwargs):
+        <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span><span style="color:#f1fa8c">        修改用户的用户名
+</span><span style="color:#f1fa8c">        &#34;&#34;&#34;</span>
+        <span style="color:#ff79c6">return</span> Response(status<span style="color:#ff79c6">=</span>status<span style="color:#ff79c6">.</span>HTTP_200_OK, data<span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;msg&#39;</span>: <span style="color:#f1fa8c">&#39;changed&#39;</span>})
+
+<span style="color:#6272a4"># account/urls.py</span>
+router <span style="color:#ff79c6">=</span> routers<span style="color:#ff79c6">.</span>SimpleRouter()
+router<span style="color:#ff79c6">.</span>register(<span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;&#39;</span>, views<span style="color:#ff79c6">.</span>AccountViewSet, base_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;user&#39;</span>)
+urlpatterns <span style="color:#ff79c6">=</span> router<span style="color:#ff79c6">.</span>urls
+</code></pre></div><p><img src="https://raw.githubusercontent.com/tcitry/Pictures/master/uPic/1574349880486.png" alt="" /></p>
+<p>以上代码，直接实现了对 account 的增（create）删（delete）改（update）和 account 列表（list），同时我又添加了<code>set_password</code>和<code>change_username</code>方法。这种形式没接触过的话很难理解，但是却很实用，尤其一个 model 有频繁的不同功能需求的时候，如果写<code>SetPasswordView</code>和<code>ChangeUsernameView</code>这样类视图的实现，未免会很麻烦，这个时候 viewsets 就是很好的选择。</p>
+<h2 id="serializers">Serializers</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">TopicListSerializer</span>(serializers<span style="color:#ff79c6">.</span>ModelSerializer):
+    <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Meta</span>:
+        model <span style="color:#ff79c6">=</span> models<span style="color:#ff79c6">.</span>TopicModel
+        fields <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;__all__&#39;</span>
+        read_only_fields <span style="color:#ff79c6">=</span> (<span style="color:#f1fa8c">&#39;id&#39;</span>, <span style="color:#f1fa8c">&#39;author_id&#39;</span>)
+</code></pre></div><p>Serializer 相当于 View 和 Model 的中间层，避免 view 频繁直接操作 model object 的同时，规范数据字段格式、内容、validator、提供序列化数据等等，同时可以定义方法实现对 model 的特定操作。serializer 不适合处理业务逻辑，它要做的就是对数据传入传出的处理，保证数据正确。通常为了验证和序列化各项数据，serializer 的代码加上 validator 也集中了较大的工作量。</p>
+<h2 id="其它">其它</h2>
+<p>DRF 最主要的就是上面提到的一些概念，也许在刚接触 Django Web 的话没有接触过，但是这应该是 DRF 中最常用的。其他的比如 router、Throttling、validator 也比较实用，甚至也是必须掌握的，但是 DRF 的文档写的确定很详细，使用方法不再介绍。</p>
+<h2 id="总结">总结</h2>
+<p>我的理解，DRF 是基于 “Don&rsquo;t repeat yourself” 原则，提出一个Web开发的规范，它代码里提供了规范的接口，和最基础的使用例子，而在实际的复杂逻辑开发中，需要的是对各种概念的 “custome” 定制，几乎文档每一页都提供了定制的介绍。实际的应用里面不会是简单的增删改查，而是需要走一定的逻辑处理后的增删改查，同时还有对基础操作频繁的复用。DRF通过把web业务系统中会出现的每一步流程拆分，进行模块化，概念化，让开发者知道需要开发的业务属于哪一种概念，放到哪一个模块下面，从而在DRF的大框架下特定的位置编写，这样减少了一份功能多份代码实现的麻烦，也因为规范化 coding 提高了开发者的效率。</p>
+<p>当然DRF也有缺点，它对新手不够友好，一些封装太极致，以至于不容易明白程序的执行流程，比如我初次看<code>viewsets</code>、<code>GenericAPIView</code>的时候。</p>
+<p>最后我基于DRF的文档，学习过程中写了一个论坛demo：<a href="https://github.com/tcitry/DRForum">DRForum</a>的论坛例子，可以直接runserver调试。通过<code>127.0.0.1:8000/docs</code>可以查看汇总的接口，这里使用了<a href="http://DRFdocs.com/">DRF Docs</a>。</p>
+</article>
+ 
+      <div>
+    <span style="float:left">
+    
+        上一篇：<a href="https://yindongliang.com/posts/use-typora-write-hugo-blog/">使用 typora 来编辑你的 hugo 博客</a>
+    
+    </span>
+    <span style="float:right">
+    
+        下一篇：<a href="https://yindongliang.com/posts/ubuntu-MariaDB/">Vagrant 虚拟机 Ubuntu16.04 安装 MariaDB</a>
+    
+    </span>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+              delimiters: [
+                  {left: "$$", right: "$$", display: true},
+                  {left: "$", right: "$", display: false},
+                  {left: "\\(", right: "\\)", display: false},
+                  {left: "\\[", right: "\\]", display: true}
+              ]
+          });
+    });
+</script>
+
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
+document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yindongliang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#apiview">APIView</a>
+          <ul>
+            <li><a href="#mixin">Mixin</a></li>
+          </ul>
+        </li>
+        <li><a href="#generic-views">Generic views</a></li>
+        <li><a href="#viewsets">Viewsets</a></li>
+        <li><a href="#serializers">Serializers</a></li>
+        <li><a href="#其它">其它</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

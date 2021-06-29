@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="概念 DOM、BOM、Window、Document DOM 是操作文档的 API，Document 是其一个对象。 BOM 是操作浏览器的 API，Window 是">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="概念 DOM、BOM、Window、Document DOM 是操作文档的 API，Document 是其一个对象。 BOM 是操作浏览器的 API，Window 是" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yindongliang.com/docs/FE/JavaScript/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
+
+<title>基本语法 | Yindongliang</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.d92e572ecaecb8ab81df83c495fc50c9330006fab2d0600e9c3ab1d52656c8ab.css" integrity="sha256-2S5XLsrsuKuB34PElfxQyTMABvqy0GAOnDqx1SZWyKs=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.189e20487a027271e4499cb8ae287b30e4ec57322ce20790cd6575e7ae46c682.js" integrity="sha256-GJ4gSHoCcnHkSZy4rih7MOTsVzIs4geQzWV1565GxoI=" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-50554094-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/logo.jpeg" alt="Logo" /><span>Yindongliang</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+<ul>
+    <li><a href="/archives">Archives</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://github.com/tcitry" target="_blank">🚀 Github</a></li>
+    <li><a href="/posts/index.xml" target="_blank">📚 RSS</a></li>
+</ul>
+<hr>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ab6241a9c9348727e1ed30d9d7253a0e" class="toggle"  />
+    <label for="section-ab6241a9c9348727e1ed30d9d7253a0e" class="flex justify-between">
+      <a role="button" class="">Golang</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="">命令行</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E5%B7%A5%E5%85%B7%E5%8C%85/" class="">工具包</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E6%A0%87%E5%87%86%E5%BA%93/" class="">标准库</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="">环境变量</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E8%AF%AD%E6%B3%95/" class="">语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83/" class="">语言规范</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://yindongliang.com/docs/Golang/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="">面试题</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>基本语法</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#概念">概念</a>
+          <ul>
+            <li><a href="#dombomwindowdocument">DOM、BOM、Window、Document</a></li>
+            <li><a href="#ssr-vs-csr">SSR vs CSR</a></li>
+          </ul>
+        </li>
+        <li><a href="#语法">语法</a>
+          <ul>
+            <li><a href="#var-和-let">var 和 let</a></li>
+            <li><a href="#匿名函数和箭头函数">匿名函数和箭头函数</a></li>
+          </ul>
+        </li>
+        <li><a href="#module-模块">module 模块</a>
+          <ul>
+            <li><a href="#exportimport-es6">export+import (ES6)</a></li>
+            <li><a href="#exportsrequire-nodejs">exports+require (node.js)</a></li>
+            <li><a href="#with">with</a></li>
+            <li><a href="#switch">switch</a></li>
+            <li><a href="#forof">for&hellip;of</a></li>
+          </ul>
+        </li>
+        <li><a href="#函数">函数</a>
+          <ul>
+            <li><a href="#生成器函数">生成器函数</a></li>
+            <li><a href="#arrow-function-和-keyword-function区别">arrow function 和 keyword function区别</a></li>
+            <li><a href="#typeof">typeof</a></li>
+            <li><a href="#arguments对象">arguments对象</a></li>
+            <li><a href="#arguments-对象">arguments 对象</a></li>
+          </ul>
+        </li>
+        <li><a href="#数据类型">数据类型</a></li>
+        <li><a href="#严格模式">严格模式</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="概念">概念</h2>
+<h3 id="dombomwindowdocument">DOM、BOM、Window、Document</h3>
+<p>DOM 是操作文档的 API，Document 是其一个对象。</p>
+<p>BOM 是操作浏览器的 API，Window 是其一个对象。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">function</span> component(s) {
+  <span style="color:#ff79c6">const</span> element <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.createElement(<span style="color:#f1fa8c">&#39;div&#39;</span>);
+  element.innerHTML <span style="color:#ff79c6">=</span> s;
+  <span style="color:#ff79c6">return</span> element;
+}
+
+<span style="color:#8be9fd;font-style:italic">document</span>.body.appendChild(component(<span style="color:#f1fa8c">&#34;hello&#34;</span>));
+</code></pre></div><h3 id="ssr-vs-csr">SSR vs CSR</h3>
+<h2 id="语法">语法</h2>
+<h3 id="var-和-let">var 和 let</h3>
+<p>var 在全局级别（函数外部）进行声明会自动变成 Window对象的一个属性：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;John&#34;</span>;
+<span style="color:#8be9fd;font-style:italic">window</span>.name <span style="color:#ff79c6">===</span> name <span style="color:#6272a4">// true
+</span></code></pre></div><p>let 或者 const 则不会：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;John&#34;</span>;
+<span style="color:#8be9fd;font-style:italic">window</span>.name <span style="color:#ff79c6">===</span> name <span style="color:#6272a4">// false
+</span></code></pre></div><p>var 存在变量提升现象：闭包或函数内部重新声明后会对外部相同变量进行覆盖。</p>
+<h3 id="匿名函数和箭头函数">匿名函数和箭头函数</h3>
+<p><a href="https://zh.javascript.info/arrow-functions">深入理解箭头函数</a></p>
+<p>this 作用域</p>
+<h2 id="module-模块">module 模块</h2>
+<h3 id="exportimport-es6">export+import (ES6)</h3>
+<p>export</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">export</span> <span style="color:#8be9fd;font-style:italic">function</span> hello (s) {
+  <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">`hello, </span><span style="color:#f1fa8c">${</span>s<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">`</span>;
+}
+</code></pre></div><p>import xxx from &lsquo;xxx&rsquo;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!doctype html&gt;</span>
+&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;module&#34;</span>&gt;
+  <span style="color:#ff79c6">import</span> {hello} from <span style="color:#f1fa8c">&#39;./hello.js&#39;</span>
+  alert(hello(<span style="color:#f1fa8c">&#34;js&#34;</span>));
+&lt;/<span style="color:#ff79c6">script</span>&gt;
+
+&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">nomodule</span>&gt;
+    alert(<span style="color:#f1fa8c">&#34;no module&#34;</span>);
+&lt;/<span style="color:#ff79c6">script</span>&gt;
+</code></pre></div><p>nomodule</p>
+<p>旧时的浏览器不理解 <code>type=&quot;module&quot;</code>, 会运行<code>nomodule</code>的代码块，支持 module 的浏览器不会运行该代码块。</p>
+<p>与 Node.js 中 exports 和 required 区别</p>
+<p><a href="https://www.ruanyifeng.com/blog/2020/08/how-nodejs-use-es6-module.html">Node.js 如何处理 ES6 模块</a></p>
+<h3 id="exportsrequire-nodejs">exports+require (node.js)</h3>
+<h3 id="with">with</h3>
+<p>严格模式下不允许使用 with 语句，否则将视为语法错误</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> qs <span style="color:#ff79c6">=</span> location.search.substring(<span style="color:#bd93f9">1</span>);
+<span style="color:#8be9fd;font-style:italic">var</span> hostName <span style="color:#ff79c6">=</span> location.hostname;
+<span style="color:#8be9fd;font-style:italic">var</span> url <span style="color:#ff79c6">=</span> location.href;
+
+<span style="color:#6272a4">// 等效于
+</span><span style="color:#6272a4"></span>
+<span style="color:#8be9fd;font-style:italic">with</span>(location){
+  <span style="color:#8be9fd;font-style:italic">var</span> qs <span style="color:#ff79c6">=</span> search.substring(<span style="color:#bd93f9">1</span>);
+  <span style="color:#8be9fd;font-style:italic">var</span> hostName <span style="color:#ff79c6">=</span> hostname;
+  <span style="color:#8be9fd;font-style:italic">var</span> url <span style="color:#ff79c6">=</span> href;
+}
+
+</code></pre></div><h3 id="switch">switch</h3>
+<p>省略 break 关键字会执行下一个 case</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">switch</span> (expression) {
+      <span style="color:#ff79c6">case</span> value<span style="color:#ff79c6">:</span> statement
+        <span style="color:#ff79c6">break</span>;
+      <span style="color:#ff79c6">case</span> value<span style="color:#ff79c6">:</span> statement
+        <span style="color:#ff79c6">break</span>;
+      <span style="color:#ff79c6">case</span> value<span style="color:#ff79c6">:</span> statement
+        <span style="color:#ff79c6">break</span>;
+      <span style="color:#ff79c6">case</span> value<span style="color:#ff79c6">:</span> statement
+   <span style="color:#ff79c6">break</span>;
+</code></pre></div><h3 id="forof">for&hellip;of</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> element <span style="color:#ff79c6">of</span> [<span style="color:#f1fa8c">&#39;a&#39;</span>, <span style="color:#f1fa8c">&#39;b&#39;</span>, <span style="color:#f1fa8c">&#39;c&#39;</span>]) {
+  console.log(element);
+}
+</code></pre></div><h2 id="函数">函数</h2>
+<h3 id="生成器函数">生成器函数</h3>
+<p>调用一个<strong>生成器函数</strong>并不会马上执行它里面的语句，而是返回一个这个生成器的 <strong>迭代器</strong> <strong>（ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#iterator">iterator</a> ）对象</strong>。当这个迭代器的 <code>next() </code>方法被首次（后续）调用时，其内的语句会执行到第一个（后续）出现<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/yield"><code>yield</code></a>的位置为止，<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/yield"><code>yield</code></a> 后紧跟迭代器要返回的值。或者如果用的是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/yield*"><code>yield*</code></a>（多了个星号），则表示将执行权移交给另一个生成器函数（当前生成器暂停执行）。</p>
+<h3 id="arrow-function-和-keyword-function区别">arrow function 和 keyword function区别</h3>
+<h3 id="typeof">typeof</h3>
+<h3 id="arguments对象">arguments对象</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">(<span style="color:#8be9fd;font-style:italic">function</span>() {
+  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> argument <span style="color:#ff79c6">of</span> arguments) {
+    console.log(argument);
+  }
+})(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>);
+
+<span style="color:#6272a4">// 1
+</span><span style="color:#6272a4">// 2
+</span><span style="color:#6272a4">// 3
+</span></code></pre></div><h3 id="arguments-对象">arguments 对象</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">function</span> foo(n) {
+  <span style="color:#8be9fd;font-style:italic">var</span> f <span style="color:#ff79c6">=</span> () =&gt; arguments[<span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">+</span> n; <span style="color:#6272a4">// 隐式绑定 foo 函数的 arguments 对象. arguments[0] 是 n,即传给foo函数的第一个参数
+</span><span style="color:#6272a4"></span>  console.log(f());
+}
+
+foo(<span style="color:#bd93f9">1</span>); <span style="color:#6272a4">// 2
+</span><span style="color:#6272a4"></span>foo(<span style="color:#bd93f9">2</span>); <span style="color:#6272a4">// 4
+</span><span style="color:#6272a4"></span>foo(<span style="color:#bd93f9">3</span>); <span style="color:#6272a4">// 6
+</span><span style="color:#6272a4"></span>foo(<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">2</span>);<span style="color:#6272a4">//6
+</span></code></pre></div><h2 id="数据类型">数据类型</h2>
+<p>Array</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">let</span> iterable <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">20</span>, <span style="color:#bd93f9">30</span>];
+</code></pre></div><p>String</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">let</span> iterable <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;boo&#34;</span>;
+</code></pre></div><p>Map</p>
+<p>Set</p>
+<h2 id="严格模式">严格模式</h2>
+<p>参考 <a href="https://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html">Javascript 严格模式详解</a></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li>现代 JavaScript 教程 <a href="https://zh.javascript.info/">https://zh.javascript.info/</a></li>
+<li>ES6 入门教程 <a href="https://es6.ruanyifeng.com/">https://es6.ruanyifeng.com/</a></li>
+<li>JavaScript - MDN <a href="https://developer.mozilla.org/zh-CN/docs/learn/JavaScript">https://developer.mozilla.org/zh-CN/docs/learn/JavaScript</a></li>
+</ul>
+</article>
+ 
+      <div>
+    <span style="float:left">
+    
+        
+    
+    </span>
+    <span style="float:right">
+    
+    </span>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8+w2LAIftJEULZABrF9PPFv+tVkH" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js" integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB+w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+              delimiters: [
+                  {left: "$$", right: "$$", display: true},
+                  {left: "$", right: "$", display: false},
+                  {left: "\\(", right: "\\)", display: false},
+                  {left: "\\[", right: "\\]", display: true}
+              ]
+          });
+    });
+</script>
+
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
+document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yindongliang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#概念">概念</a>
+          <ul>
+            <li><a href="#dombomwindowdocument">DOM、BOM、Window、Document</a></li>
+            <li><a href="#ssr-vs-csr">SSR vs CSR</a></li>
+          </ul>
+        </li>
+        <li><a href="#语法">语法</a>
+          <ul>
+            <li><a href="#var-和-let">var 和 let</a></li>
+            <li><a href="#匿名函数和箭头函数">匿名函数和箭头函数</a></li>
+          </ul>
+        </li>
+        <li><a href="#module-模块">module 模块</a>
+          <ul>
+            <li><a href="#exportimport-es6">export+import (ES6)</a></li>
+            <li><a href="#exportsrequire-nodejs">exports+require (node.js)</a></li>
+            <li><a href="#with">with</a></li>
+            <li><a href="#switch">switch</a></li>
+            <li><a href="#forof">for&hellip;of</a></li>
+          </ul>
+        </li>
+        <li><a href="#函数">函数</a>
+          <ul>
+            <li><a href="#生成器函数">生成器函数</a></li>
+            <li><a href="#arrow-function-和-keyword-function区别">arrow function 和 keyword function区别</a></li>
+            <li><a href="#typeof">typeof</a></li>
+            <li><a href="#arguments对象">arguments对象</a></li>
+            <li><a href="#arguments-对象">arguments 对象</a></li>
+          </ul>
+        </li>
+        <li><a href="#数据类型">数据类型</a></li>
+        <li><a href="#严格模式">严格模式</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
